@@ -18,4 +18,9 @@ public class MainActivity extends AppCompatActivity {
         Intent monInt = new Intent(this.getApplicationContext(),SignUpActivity.class);
         startActivity(monInt);
     }
+
+    public void ViewLogIn(View view) {
+        Intent monInt = new Intent(this.getApplicationContext(),LogInActivity.class);
+        startActivity(monInt);
+    }
 }
