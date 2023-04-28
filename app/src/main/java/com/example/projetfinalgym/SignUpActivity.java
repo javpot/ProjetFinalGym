@@ -19,21 +19,26 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class SignUpActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
+    EditText nameV, emailV, passwordV;
     String name, email, password;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_);
-        name = findViewById(R.id.name).toString();
-        email = findViewById(R.id.email).toString();
-        password = findViewById(R.id.password).toString();
+        nameV = findViewById(R.id.name);
+        emailV = findViewById(R.id.email);
+        passwordV = findViewById(R.id.password);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
     }
     private void CreateUser() {
-        if (!name.isEmpty()) {
+        name = nameV.getText().toString();
+        email = emailV.getText().toString();
+        password = passwordV.getText().toString();
+
+        if (name.isEmpty()) {
             Toast.makeText(SignUpActivity.this, "La case Nom ne doit pas etre vide",
                     Toast.LENGTH_SHORT).show();
         }
