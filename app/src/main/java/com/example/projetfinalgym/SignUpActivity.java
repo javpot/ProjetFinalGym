@@ -63,7 +63,10 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
     public void SignUp(View view) {
+
         this.CreateUser();
+        Intent monInt = new Intent(this.getApplicationContext(),MainActivity.class);
+        startActivity(monInt);
     }
 
 
