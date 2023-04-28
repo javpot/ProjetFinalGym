@@ -22,6 +22,8 @@ public class SignUpActivity extends AppCompatActivity {
     EditText nameV, emailV, passwordV;
     String name, email, password;
 
+    boolean accepted = false;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_);
@@ -41,21 +43,24 @@ public class SignUpActivity extends AppCompatActivity {
         if (name.isEmpty()) {
             Toast.makeText(SignUpActivity.this, "La case Nom ne doit pas etre vide",
                     Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else if (password.length() < 6) {
+            Toast.makeText(SignUpActivity.this, "Le mot de passe doit etre au moins 6 caracteres",
+                    Toast.LENGTH_SHORT).show();
+        } else {
             // create user
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
-                            // Sign in success
+                            // Sign up success
                             // set le nom du user
                             FirebaseUser user = mAuth.getCurrentUser();
                             UserProfileChangeRequest profileUpdateRequest = new UserProfileChangeRequest.Builder()
                                     .setDisplayName(name).build();
                             user.updateProfile(profileUpdateRequest);
+                            accepted = true;
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(SignUpActivity.this, "Authentication failed.",
+                            // If sign up fails, display a message to the user.
+                            Toast.makeText(SignUpActivity.this, "email invalide",
                                     Toast.LENGTH_SHORT).show();
                         }
                     });
@@ -63,10 +68,12 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
     public void SignUp(View view) {
-
         this.CreateUser();
-        Intent monInt = new Intent(this.getApplicationContext(),MainActivity.class);
-        startActivity(monInt);
+        if (accepted == true) {
+            accepted = false;
+            Intent monInt = new Intent(this.getApplicationContext(),MainActivity.class);
+            startActivity(monInt);
+        }
     }
 
 

@@ -13,7 +13,7 @@ public class TransferActivity extends AppCompatActivity {
         setContentView(R.layout.activity_transfer);
     }
 
-    public void ViewSignUp(View view) {
+    public void Transfer(View view) {
         Intent monInt = new Intent(this.getApplicationContext(),MainActivity.class);
         startActivity(monInt);
     }

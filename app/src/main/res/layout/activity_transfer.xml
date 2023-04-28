@@ -12,35 +12,28 @@
         android:layout_width="175dp"
         android:layout_height="48dp"
         android:background="@drawable/accueilbutton"
-        android:text="Proceed"
+        android:text="Click to proceed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.904" />
+        app:layout_constraintVertical_bias="0.814"
+        android:onClick="Transfer"/>
 
     <TextView
         android:id="@+id/Header"
         android:layout_width="349dp"
         android:layout_height="62dp"
         android:text="Thank you for joining us!"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.066" />
-
-    <TextView
-        android:id="@+id/Message"
-        android:layout_width="349dp"
-        android:layout_height="62dp"
-        android:text="Click to proceed"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.78" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -55,35 +48,46 @@
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Beginner" />
+            android:text="Beginner"
+            android:textSize="20sp"
+            android:textColor="@color/white"/>
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Intermediate" />
+            android:text="Intermediate"
+            android:textSize="20sp"
+            android:textColor="@color/white"/>
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Advanced" />
+            android:text="Advanced"
+            android:textSize="20sp"
+            android:textColor="@color/white"/>
 
         <RadioButton
             android:id="@+id/radioButton4"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="I don't know" />
+            android:text="I don't know"
+            android:textSize="20sp"
+            android:textColor="@color/white"/>
     </RadioGroup>
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="257dp"
-        android:layout_height="58dp"
+        android:layout_width="247dp"
+        android:layout_height="53dp"
         android:text="What is your level?"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.295" />
 </androidx.constraintlayout.widget.ConstraintLayout>
