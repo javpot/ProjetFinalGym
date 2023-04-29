@@ -58,6 +58,9 @@ public class SignUpActivity extends AppCompatActivity {
                                     .setDisplayName(name).build();
                             user.updateProfile(profileUpdateRequest);
                             accepted = true;
+                            // passer a l'activity Transfer
+                            Intent monInt = new Intent(this.getApplicationContext(), TransferActivity.class);
+                            startActivity(monInt);
                         } else {
                             // If sign up fails, display a message to the user.
                             Toast.makeText(SignUpActivity.this, "email invalide",
@@ -71,8 +74,6 @@ public class SignUpActivity extends AppCompatActivity {
         this.CreateUser();
         if (accepted == true) {
             accepted = false;
-            Intent monInt = new Intent(this.getApplicationContext(),MainActivity.class);
-            startActivity(monInt);
         }
     }
 

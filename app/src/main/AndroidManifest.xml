@@ -22,6 +22,8 @@
         </activity>
         <activity android:name=".SignUpActivity"/>
         <activity android:name=".LogInActivity"/>
+        <activity android:name=".TransferActivity"/>
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>

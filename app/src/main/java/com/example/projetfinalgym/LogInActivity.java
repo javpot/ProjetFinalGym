@@ -28,6 +28,9 @@ public class LogInActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
     private void login() {
+        email = emailV.getText().toString();
+        password = passwordV.getText().toString();
+
         if (email.isEmpty()) {
             Toast.makeText(LogInActivity.this, "La case email ne doit pas etre vide",
                     Toast.LENGTH_SHORT).show();
@@ -39,6 +42,9 @@ public class LogInActivity extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
                if (task.isSuccessful()) {
                     accepted = true;
+                   // passer a l'activity Main
+                   Intent monInt = new Intent(this.getApplicationContext(),MainActivity.class);
+                   startActivity(monInt);
                }
                else {
                    Toast.makeText(LogInActivity.this, "Login failed",
@@ -52,8 +58,6 @@ public class LogInActivity extends AppCompatActivity {
         this.login();
         if (accepted == true) {
             accepted = false;
-            Intent monInt = new Intent(this.getApplicationContext(),MainActivity.class);
-            startActivity(monInt);
         }
     }
 
