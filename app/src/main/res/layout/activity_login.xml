@@ -87,16 +87,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ultzrkfl_removebg_preview" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Wrong email/password"
-        android:textColor="#E30F0F"
-        android:textSize="16sp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Proceed" />
 </androidx.constraintlayout.widget.ConstraintLayout>
