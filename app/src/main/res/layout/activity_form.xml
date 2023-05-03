@@ -16,53 +16,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.006"
+        app:layout_constraintVertical_bias="0.024"
         app:srcCompat="@drawable/dumbell_fitness_svgrepo_com" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="193dp"
-        android:layout_height="164dp"
-        android:alpha="0.45"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.841"
-        app:srcCompat="@drawable/ultzrkfl_removebg_preview" />
-
-    <EditText
-        android:id="@+id/edit_text2"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text1"
-        android:hint="Courte description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.187"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <EditText
-        android:id="@+id/edit_text3"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text2"
-        android:hint="Longue description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <EditText
-        android:id="@+id/edit_text4"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text3"
-        android:hint="Muscles solicites (optionnel)"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.357"
-        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/edit_text5"
@@ -72,19 +27,41 @@
         android:hint="Execution de l'exercice (optionnel)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.428"
+        tools:layout_editor_absoluteX="16dp" />
 
     <EditText
-        android:id="@+id/edit_text6"
+        android:id="@+id/edit_text2"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@id/edit_text5"
-        android:hint="Lien Youtube"
+        android:layout_below="@id/edit_text1"
+        android:hint="Courte description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.218"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/edit_text3"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/edit_text2"
+        android:hint="Longue description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.288"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/edit_text4"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/edit_text3"
+        android:hint="Muscles solicites (optionnel)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.358"
+        tools:layout_editor_absoluteX="16dp" />
 
     <EditText
         android:id="@+id/edit_text1"
@@ -95,8 +72,19 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.107"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.147"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/edit_text6"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/edit_text5"
+        android:hint="Lien Youtube"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
         android:id="@+id/textView7"
@@ -107,122 +95,10 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.594" />
-
-    <CheckBox
-        android:id="@+id/checkbox6"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text6"
-        android:layout_toEndOf="@id/checkbox1"
-        android:text="Checkbox 6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.862"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.755" />
-
-    <CheckBox
-        android:id="@+id/checkbox8"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text6"
-        android:layout_alignParentStart="true"
-        android:text="Dos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.746"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.682" />
-
-    <CheckBox
-        android:id="@+id/checkbox5"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text6"
-        android:layout_toEndOf="@id/checkbox2"
-        android:text="xxx"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.743"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.896" />
-
-    <CheckBox
-        android:id="@+id/checkbox7"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text6"
-        android:layout_toEndOf="@id/checkbox2"
-        android:text="Checkbox 7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.862"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.825" />
-
-    <CheckBox
-        android:id="@+id/checkbox4"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text6"
-        android:layout_toEndOf="@id/checkbox2"
-        android:text="Epaules"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895" />
-
-    <CheckBox
-        android:id="@+id/checkbox2"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text6"
-        android:layout_toEndOf="@id/checkbox1"
-        android:text="Triceps"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.755" />
-
-    <CheckBox
-        android:id="@+id/checkbox3"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text6"
-        android:layout_toEndOf="@id/checkbox2"
-        android:text="Chest"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.825" />
-
-    <CheckBox
-        android:id="@+id/checkbox1"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text6"
-        android:layout_alignParentStart="true"
-        android:text="Biceps"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.682" />
+        app:layout_constraintVertical_bias="0.592" />
 
     <Button
         android:id="@+id/buttonDone"
@@ -238,5 +114,96 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="192dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.858">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkbox1"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/edit_text6"
+                android:layout_alignParentStart="true"
+                android:text="Biceps" />
+
+            <CheckBox
+                android:id="@+id/checkbox3"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/edit_text6"
+                android:layout_toEndOf="@id/checkbox2"
+                android:text="Chest" />
+
+            <CheckBox
+                android:id="@+id/checkbox2"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/edit_text6"
+                android:layout_toEndOf="@id/checkbox1"
+                android:text="Triceps" />
+
+            <CheckBox
+                android:id="@+id/checkbox4"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/edit_text6"
+                android:layout_toEndOf="@id/checkbox2"
+                android:text="Epaules" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkbox6"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/edit_text6"
+                android:layout_toEndOf="@id/checkbox1"
+                android:text="Cardio" />
+
+            <CheckBox
+                android:id="@+id/checkbox5"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/edit_text6"
+                android:layout_toEndOf="@id/checkbox2"
+                android:text="Etirements" />
+
+            <CheckBox
+                android:id="@+id/checkbox7"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/edit_text6"
+                android:layout_toEndOf="@id/checkbox2"
+                android:text="Jambes" />
+
+            <CheckBox
+                android:id="@+id/checkbox8"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/edit_text6"
+                android:layout_alignParentStart="true"
+                android:text="Dos" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
