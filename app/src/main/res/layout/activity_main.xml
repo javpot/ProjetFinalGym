@@ -41,7 +41,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7"
-                app:srcCompat="@drawable/gym__banner__landscape____1___1__4_modified" />
+                app:srcCompat="@drawable/gym__banner__landscape____1___1__4_modified"
+                android:onClick="ViewLegWorkouts"/>
 
             <ImageView
                 android:id="@+id/imageView9"
@@ -51,7 +52,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView8"
-                app:srcCompat="@drawable/gym__banner__landscape____1__2_modified" />
+                app:srcCompat="@drawable/gym__banner__landscape____1__2_modified"
+                android:onClick="ViewChestWorkouts"/>
 
             <ImageView
                 android:id="@+id/imageView10"
@@ -62,7 +64,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.492"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/gym__banner__landscape___2_modified" />
+                app:srcCompat="@drawable/gym__banner__landscape___2_modified"
+                android:onClick="ViewBicepWorkouts"/>
 
             <TextView
                 android:id="@+id/textView"
@@ -70,11 +73,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:text="See more"
-                android:textColor="#3F51B5"
+                android:textColor="#4D61CD"
                 android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView10"
+                android:onClick="ViewWorkouts"/>
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/bottomAppBar"
