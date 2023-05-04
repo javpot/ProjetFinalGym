@@ -25,6 +25,7 @@
         <activity android:name=".TransferActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".AddWorkoutActivity"/>
+        <activity android:name=".ModifierWorkoutActivity"/>
     </application>
 
 </manifest>

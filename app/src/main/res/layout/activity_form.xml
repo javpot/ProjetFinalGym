@@ -20,15 +20,15 @@
         app:srcCompat="@drawable/dumbell_fitness_svgrepo_com" />
 
     <EditText
-        android:id="@+id/edit_text5"
+        android:id="@+id/edit_text3"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@id/edit_text4"
-        android:hint="Execution de l'exercice (optionnel)"
+        android:layout_below="@id/edit_text2"
+        android:hint="Longue description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.428"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintVertical_bias="0.298"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/edit_text2"
@@ -38,30 +38,8 @@
         android:hint="Courte description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <EditText
-        android:id="@+id/edit_text3"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text2"
-        android:hint="Longue description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.288"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <EditText
-        android:id="@+id/edit_text4"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/edit_text3"
-        android:hint="Muscles solicites (optionnel)"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintVertical_bias="0.228"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/edit_text1"
@@ -72,8 +50,19 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.147"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintVertical_bias="0.158"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/edit_text5"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/edit_text4"
+        android:hint="Execution de l'exercice (optionnel)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.439"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/edit_text6"
@@ -83,13 +72,25 @@
         android:hint="Lien Youtube"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintVertical_bias="0.509"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/edit_text4"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/edit_text3"
+        android:hint="Muscles solicites (optionnel)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.368"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="156dp"
         android:layout_height="41dp"
+        android:gravity="center"
         android:text="Categories"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
@@ -98,7 +99,7 @@
         app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.592" />
+        app:layout_constraintVertical_bias="0.584" />
 
     <Button
         android:id="@+id/buttonDone"
@@ -125,7 +126,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.865">
+        app:layout_constraintVertical_bias="0.858">
 
         <LinearLayout
             android:layout_width="wrap_content"
