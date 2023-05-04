@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="darkgray">#4C4C4C</color>
     <color name="turquoise">#52E1A4</color>
+    <color name="partialBlack">#181717</color>
 </resources>
