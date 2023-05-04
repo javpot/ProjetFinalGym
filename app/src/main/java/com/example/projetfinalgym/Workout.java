@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Workout {
-    private Image image;
-    private CheckBox categorie;
     private Map<String,Object> infos = new HashMap<>();
 
 
@@ -18,8 +16,8 @@ public class Workout {
         infos.put("Titre",titre);
         infos.put("Muscle sollicite",musclesSollicite);
         infos.put("Execution",execution);
-        infos.put("lien_Youtube",lienYoutube);
-        infos.put("courteDescription",courtedescription);
+        infos.put("Lien_Youtube",lienYoutube);
+        infos.put("CourteDescription",courtedescription);
         infos.put("LongueDescription",longueDescription);
 
     }
