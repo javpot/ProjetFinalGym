@@ -76,19 +76,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottomAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@color/white"
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/bottomAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/darkgray"
 
 
-
-
-            app:layout_constraintBottom_toBottomOf="parent">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+            </com.google.android.material.appbar.MaterialToolbar>
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottomNavigationView"
@@ -96,11 +95,12 @@
                 android:layout_height="wrap_content"
 
                 android:background="@drawable/transparent_background"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:menu="@menu/bottom_nav" />
 
-        </com.google.android.material.bottomappbar.BottomAppBar>
 
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
