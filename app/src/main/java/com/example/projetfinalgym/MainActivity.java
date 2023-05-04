@@ -12,9 +12,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Message bonjour personalise
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String userName = auth.getCurrentUser().getDisplayName();
         TextView bonjour = findViewById(R.id.textView7);
         bonjour.setText("Hi " + userName);
+
+
     }
     }
