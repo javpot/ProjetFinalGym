@@ -9,8 +9,9 @@
 
     <Button
         android:id="@+id/Proceed"
-        android:layout_width="175dp"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
+        android:padding="10dp"
         android:background="@drawable/accueilbutton"
         android:text="Click to proceed"
         app:layout_constraintBottom_toBottomOf="parent"

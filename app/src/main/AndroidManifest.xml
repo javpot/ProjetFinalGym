@@ -26,6 +26,10 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".AddWorkoutActivity"/>
         <activity android:name=".ModifierWorkoutActivity"/>
+        <activity android:name=".AllCategoriesActivity"/>
+        <activity android:name=".AllWorkoutsActivity"/>
+        <activity android:name=".SingleWorkoutActivity"/>
+
     </application>
 
 </manifest>
