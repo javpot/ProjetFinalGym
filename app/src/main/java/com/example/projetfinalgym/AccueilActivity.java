@@ -15,7 +15,7 @@ public class AccueilActivity extends AppCompatActivity {
     }
 
     public void ViewSignUp(View view) {
-        Intent monInt = new Intent(this.getApplicationContext(),SignUpActivity.class);
+        Intent monInt = new Intent(this.getApplicationContext(),MainActivity.class);
         startActivity(monInt);
     }
 
