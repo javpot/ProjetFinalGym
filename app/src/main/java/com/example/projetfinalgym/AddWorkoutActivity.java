@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AddWorkoutActivity extends AppCompatActivity {
     EditText Nom, CourteDesc, LongueDesc, Muscles, ExecutionExercice, LienYT;
     CheckBox Biceps,Chest,Triceps,Epaules,Cardio,Etirements,Jambes,Dos;
-
     Button Done;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +36,6 @@ public class AddWorkoutActivity extends AppCompatActivity {
         Dos = findViewById(R.id.checkbox8);
 
         Done = findViewById(R.id.buttonDone);
-
         Done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
