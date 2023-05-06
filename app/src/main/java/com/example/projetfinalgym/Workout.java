@@ -3,10 +3,11 @@ package com.example.projetfinalgym;
 import android.media.Image;
 import android.widget.CheckBox;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Workout {
+public class Workout implements Serializable {
     private Map<String,Object> infos = new HashMap<>();
 
 public Workout() {}
@@ -20,5 +21,13 @@ public Workout() {}
         infos.put("CourteDescription",courtedescription);
         infos.put("LongueDescription",longueDescription);
 
+    }
+
+    public Map<String, Object> getInfos() {
+        return infos;
+    }
+
+    public void setInfos(Map<String, Object> infos) {
+        this.infos = infos;
     }
 }
