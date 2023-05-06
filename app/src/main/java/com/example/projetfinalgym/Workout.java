@@ -9,7 +9,7 @@ import java.util.Map;
 public class Workout {
     private Map<String,Object> infos = new HashMap<>();
 
-
+public Workout() {}
     public Workout(Image image, Categories categorie, String titre, String courtedescription,String longueDescription,String musclesSollicite, String execution, String lienYoutube ) {
         infos.put("Image",image);
         infos.put("Categorie",categorie);
