@@ -16,6 +16,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
@@ -23,6 +29,14 @@ public class SignUpActivity extends AppCompatActivity {
     String name, email, password;
 
     boolean accepted = false;
+    Workout workoutBiceps1 = new Workout(null,Categories.Biceps,"Curl à la barre","Avec le curl debout avec la barre, le biceps brachial et le brachial antérieur sont assistés par le long supinateur et le rond pronateur.","Le biceps est constitué de deux faisceaux (longue portion et courte portion). Le brachial antérieur est situé sous le biceps, près du coude. Il intervient fortement dans la flexion du coude, quel que soit le type de prise adoptée. Logé sur la face supéro-externe de l’avant-bras, du côté du pouce, le long supinateur crée le galbe de l’avant-bras, depuis le coude jusqu’au pouce. Le rond pronateur n’intervient que lorsque la résistance est suffisamment importante. Recouvert en partie par le long supinateur, il est logé en oblique en travers du coude.","Biceps","Prenez une barre avec une prise en supination et de la largeur des épaules. Tenez-vous debout et tenez la barre au niveau des cuisses.\n" +
+            "Positionnez vos pieds écartés de la largeur des hanches, les genoux légèrement fléchis. Tirez vos épaules vers l’arrière et sortez votre poitrine.\n" +
+            "\n" +
+            "Fléchissez les coudes pour faire monter la charge. Déplacez légèrement les coudes vers l’avant, mais pas plus que de quelques centimètres.\n" +
+            "Soulevez la barre jusqu’à ce que vos avant-bras soient perpendiculaires au sol. Faites une courte pause pour contracter vos biceps.\n" +
+            "Dépliez les coudes pour faire redescendre la barre. Ramenez les coudes dans leur position initiale.\n" +
+            "Abaissez la barre jusqu’à ce que vous reveniez à la position de départ.\n" +
+            "Répétez le mouvement jusqu’à effectuer le nombre de répétitions souhaitées.","https://www.youtube.com/watch?v=ZXYkt-pkcAQ" );
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
         nameV = findViewById(R.id.name);
         emailV = findViewById(R.id.email);
         passwordV = findViewById(R.id.password);
+
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -58,9 +73,28 @@ public class SignUpActivity extends AppCompatActivity {
                                     .setDisplayName(name).build();
                             user.updateProfile(profileUpdateRequest);
                             accepted = true;
-                            // passer a l'activity Transfer
-                            Intent monInt = new Intent(this.getApplicationContext(), TransferActivity.class);
-                            startActivity(monInt);
+                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+                            Map<String, Object> userData = new HashMap<>();
+                            userData.put("name", name);
+                            userData.put("email", email);
+
+                            db.collection("Users").document(user.getUid()).set(userData)
+                                    .addOnSuccessListener(aVoid -> {
+                                        DocumentReference userRef = db.collection("Users").document(user.getUid());
+                                        CollectionReference newCollectionRef = userRef.collection("Workout");
+                                        newCollectionRef.add(workoutBiceps1)
+                                                .addOnSuccessListener(documentReference -> {
+                                                    System.out.println("good");
+                                                })
+                                                .addOnFailureListener(e -> {
+                                                    System.out.println("mauvaias");
+                                                });
+
+
+                                        // passer a l'activity Transfer
+                                        Intent monInt = new Intent(this.getApplicationContext(), TransferActivity.class);
+                                        startActivity(monInt);
+                                    });
                         } else {
                             // If sign up fails, display a message to the user.
                             Toast.makeText(SignUpActivity.this, "email invalide",
@@ -70,6 +104,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         }
     }
+
     public void SignUp(View view) {
         this.CreateUser();
         if (accepted == true) {
