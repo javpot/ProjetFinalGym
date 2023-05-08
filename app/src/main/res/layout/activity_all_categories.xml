@@ -8,6 +8,7 @@
     android:background="@color/darkgray">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="620dp"
         android:fillViewport="true"
@@ -25,49 +26,61 @@
                 android:id="@+id/imageView14"
                 android:layout_width="179dp"
                 android:layout_height="147dp"
-                app:srcCompat="@drawable/image"
-                tools:layout_editor_absoluteX="226dp"
-                tools:layout_editor_absoluteY="464dp" />
+                android:layout_marginTop="52dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView11"
+                app:srcCompat="@drawable/image" />
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="179dp"
                 android:layout_height="147dp"
-                app:srcCompat="@drawable/image"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="464dp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="52dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView14"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView12"
+                app:srcCompat="@drawable/image" />
 
             <ImageView
                 android:id="@+id/imageView11"
                 android:layout_width="179dp"
                 android:layout_height="147dp"
-                app:srcCompat="@drawable/image"
-                tools:layout_editor_absoluteX="226dp"
-                tools:layout_editor_absoluteY="249dp" />
+                android:layout_marginTop="64dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView13"
+                app:srcCompat="@drawable/image" />
 
             <ImageView
                 android:id="@+id/imageView12"
                 android:layout_width="179dp"
                 android:layout_height="147dp"
-                app:srcCompat="@drawable/image"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="249dp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="64dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6"
+                app:srcCompat="@drawable/image" />
 
             <ImageView
                 android:id="@+id/imageView13"
                 android:layout_width="179dp"
                 android:layout_height="147dp"
-                app:srcCompat="@drawable/image"
-                tools:layout_editor_absoluteX="226dp"
-                tools:layout_editor_absoluteY="37dp" />
+                android:layout_marginTop="44dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/image" />
 
             <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="179dp"
                 android:layout_height="147dp"
-                app:srcCompat="@drawable/image"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="37dp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="44dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/image" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -93,6 +106,11 @@
 
         android:background="@drawable/transparent_background"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_nav" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
