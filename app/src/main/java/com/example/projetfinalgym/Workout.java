@@ -11,9 +11,8 @@ public class Workout implements Serializable {
     private Map<String,Object> infos = new HashMap<>();
 
 public Workout() {}
-    public Workout(Image image, Categories categorie, String titre, String courtedescription,String longueDescription,String musclesSollicite, String execution, String lienYoutube ) {
+    public Workout(String image, String titre, String courtedescription,String longueDescription,String musclesSollicite, String execution, String lienYoutube ) {
         infos.put("Image",image);
-        infos.put("Categorie",categorie);
         infos.put("Titre",titre);
         infos.put("Muscle sollicite",musclesSollicite);
         infos.put("Execution",execution);

@@ -43,15 +43,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     public void ViewLegWorkouts(View view) {
-        Intent monInt = new Intent(this.getApplicationContext(), MainActivity.class);
+        Intent monInt = new Intent(this.getApplicationContext(), AllWorkoutsActivity.class);
         startActivity(monInt);
     }
     public void ViewChestWorkouts(View view) {
-        Intent monInt = new Intent(this.getApplicationContext(), MainActivity.class);
+        Intent monInt = new Intent(this.getApplicationContext(), AllWorkoutsActivity.class);
         startActivity(monInt);
     }
     public void ViewBicepWorkouts(View view) {
-        Intent monInt = new Intent(this.getApplicationContext(), MainActivity.class);
+        Intent monInt = new Intent(this.getApplicationContext(), AllWorkoutsActivity.class);
         startActivity(monInt);
     }
 

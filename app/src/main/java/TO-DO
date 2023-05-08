@@ -1,3 +1,8 @@
--- design activity_main + functionnality
 -- design home/workout/profil + functionnality
--- categories/workouts/details + modifier/ajouter + supprimer
+-- categories/workouts/details
+-- changer le model pour la base, le path des collections -> une collection pour chaque categorie
+-- modifier/ajouter -> make as fragments
+-- design AllCategories with query
+-- design AllWorkouts, with simpleView with query
+-- supprimer -> make as dialog (pop up prompt)
+--

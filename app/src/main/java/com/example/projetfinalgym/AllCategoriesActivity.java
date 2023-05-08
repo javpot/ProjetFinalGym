@@ -28,13 +28,6 @@ public class AllCategoriesActivity extends AppCompatActivity implements BottomNa
         menuItem2.setChecked(true);
     }
 
-    private void TransferCategorieParameter(Categories categories) {
-        Intent intent = new Intent(this, AllWorkoutsActivity.class);
-        intent.putExtra("categorie", categories);
-        startActivity(intent);
-
-    }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {

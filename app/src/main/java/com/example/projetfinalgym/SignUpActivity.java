@@ -30,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
     boolean accepted = false;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    Workout workoutBiceps1 = new Workout(null,Categories.Biceps,"Curl à la barre","Avec le curl debout avec la barre, le biceps brachial et le brachial antérieur sont assistés par le long supinateur et le rond pronateur.","Le biceps est constitué de deux faisceaux (longue portion et courte portion). Le brachial antérieur est situé sous le biceps, près du coude. Il intervient fortement dans la flexion du coude, quel que soit le type de prise adoptée. Logé sur la face supéro-externe de l’avant-bras, du côté du pouce, le long supinateur crée le galbe de l’avant-bras, depuis le coude jusqu’au pouce. Le rond pronateur n’intervient que lorsque la résistance est suffisamment importante. Recouvert en partie par le long supinateur, il est logé en oblique en travers du coude.","Biceps","Prenez une barre avec une prise en supination et de la largeur des épaules. Tenez-vous debout et tenez la barre au niveau des cuisses.\n" +
+    Workout workoutBiceps1 = new Workout(null,"Curl à la barre","Avec le curl debout avec la barre, le biceps brachial et le brachial antérieur sont assistés par le long supinateur et le rond pronateur.","Le biceps est constitué de deux faisceaux (longue portion et courte portion). Le brachial antérieur est situé sous le biceps, près du coude. Il intervient fortement dans la flexion du coude, quel que soit le type de prise adoptée. Logé sur la face supéro-externe de l’avant-bras, du côté du pouce, le long supinateur crée le galbe de l’avant-bras, depuis le coude jusqu’au pouce. Le rond pronateur n’intervient que lorsque la résistance est suffisamment importante. Recouvert en partie par le long supinateur, il est logé en oblique en travers du coude.","Biceps","Prenez une barre avec une prise en supination et de la largeur des épaules. Tenez-vous debout et tenez la barre au niveau des cuisses.\n" +
             "Positionnez vos pieds écartés de la largeur des hanches, les genoux légèrement fléchis. Tirez vos épaules vers l’arrière et sortez votre poitrine.\n" +
             "\n" +
             "Fléchissez les coudes pour faire monter la charge. Déplacez légèrement les coudes vers l’avant, mais pas plus que de quelques centimètres.\n" +
@@ -39,29 +39,29 @@ public class SignUpActivity extends AppCompatActivity {
             "Abaissez la barre jusqu’à ce que vous reveniez à la position de départ.\n" +
             "Répétez le mouvement jusqu’à effectuer le nombre de répétitions souhaitées.","https://www.youtube.com/watch?v=ZXYkt-pkcAQ" );
 
-    Workout workoutTriceps1 = new Workout(null,Categories.Triceps,"Barre front", "un exercice d’extension des triceps effectué couché avec une barre.", "Il s’agit d’un exercice populaire dont le principal avantage est d’obtenir un étirement très important du muscle, ce qui permet d’activer davantage de fibres pour l’hypertrophie musculaire.", "triceps", "Le barre front est l’un des meilleurs exercices de musculation des triceps qui soit. Asseyez-vous à l’extrémité d’un banc plat avec une barre d’haltères sur vos cuisses.\n" +
+    Workout workoutTriceps1 = new Workout(null,"Barre front", "un exercice d’extension des triceps effectué couché avec une barre.", "Il s’agit d’un exercice populaire dont le principal avantage est d’obtenir un étirement très important du muscle, ce qui permet d’activer davantage de fibres pour l’hypertrophie musculaire.", "triceps", "Le barre front est l’un des meilleurs exercices de musculation des triceps qui soit. Asseyez-vous à l’extrémité d’un banc plat avec une barre d’haltères sur vos cuisses.\n" +
             "Saisissez la barre avec une prise en main en pronation (paumes vers le bas), les mains étant écartées de la largeur des épaules.\n" +
             "Allongez-vous sur le dos et amenez la barre sur votre poitrine. Tendez les bras au-dessus de cette dernière.\n" +
             "En gardant les coudes immobiles et non pointés vers l’extérieur, abaissez lentement la barre jusqu’à ce qu’elle soit à environ 2 cm de votre front.\n" +
             "Faites une pause, puis tendez lentement les bras pour revenir à la position de départ.\n" +
             "Ne verrouillez pas vos coudes, puis répétez l’exercice jusqu’à ce que vous ayez atteint le nombre de répétitions souhaité.", "https://www.youtube.com/watch?v=H3IYYdZYiwo");
-    Workout workoutChest1 = new Workout(null,Categories.Chest, "Développé couché", "développé couché est l’un des premiers exercices que la plupart des pratiquants apprennent lorsqu’ils commencent la musculation. C’est de loin l’exercice le plus populaire effectué dans la plupart des salles de sport. Êtes-vous déjà allé un lundi dans une salle de muscu pour essayer de faire cet exercice sur banc ? Ce n’est tout simplement pas possible.", "Le développé couché est pratiqué comme un exercice pour le haut du corps, ciblant principalement les muscles pectoraux, et secondairement les triceps et épaules. Mais lorsqu’il est effectué correctement, il permet de travailler tout le corps, avec une sollicitation des jambes, un gainage de la sangle abdominale, et une stabilisation de la ceinture scapulaire.\n" +
+    Workout workoutChest1 = new Workout(null, "Développé couché", "développé couché est l’un des premiers exercices que la plupart des pratiquants apprennent lorsqu’ils commencent la musculation. C’est de loin l’exercice le plus populaire effectué dans la plupart des salles de sport. Êtes-vous déjà allé un lundi dans une salle de muscu pour essayer de faire cet exercice sur banc ? Ce n’est tout simplement pas possible.", "Le développé couché est pratiqué comme un exercice pour le haut du corps, ciblant principalement les muscles pectoraux, et secondairement les triceps et épaules. Mais lorsqu’il est effectué correctement, il permet de travailler tout le corps, avec une sollicitation des jambes, un gainage de la sangle abdominale, et une stabilisation de la ceinture scapulaire.\n" +
             "\n" +
             "Cependant, lorsqu’il est mal exécuté, il peut causer de graves déséquilibres musculaires qui entraînent des douleurs chroniques à l’épaule. Inutile donc de vous dire que cela va compliquer la plupart de vos activités quotidiennes.", "les muscles pectoraux, triceps, epaules", "Tirez vos omoplates en arrière (et vers le bas si vous avez tendance à hausser les épaules).\n" +
             "Faites littéralement comme si vous essayiez d’étirer la barre en longueur. Cela activera davantage les dorsaux et les autres muscles du dos.\n" +
             "Bloquez vos muscles abdominaux, fessiers et quadriceps en les contractant bien fort. Rappelez-vous qu’il s’agit d’un exercice sollicitant tout le corps !", "https://www.youtube.com/watch?v=rT7DgCr-3pg");
-    Workout workoutDos1 = new Workout(null,Categories.Dos, "traction", "La traction (en anglais pull up) est un exercice classique qui permet de cibler les muscles du haut du dos, en particulier le muscle grand dorsal.", "Les mouvements de traction verticale, tels que la traction classique (mains en pronation), sont des mouvements de base indispensables à vos séances d’entraînement. Après avoir trouvé une variante avec laquelle vous vous sentez à l’aise, pratiquez-la régulièrement pour gagner en force et avoir une plus belle silhouette.\n" +
+    Workout workoutDos1 = new Workout(null, "traction", "La traction (en anglais pull up) est un exercice classique qui permet de cibler les muscles du haut du dos, en particulier le muscle grand dorsal.", "Les mouvements de traction verticale, tels que la traction classique (mains en pronation), sont des mouvements de base indispensables à vos séances d’entraînement. Après avoir trouvé une variante avec laquelle vous vous sentez à l’aise, pratiquez-la régulièrement pour gagner en force et avoir une plus belle silhouette.\n" +
             "\n" +
             "Les tractions peuvent être intégrées dans des entraînements pour le dos, des entraînements pour le haut du corps ou des entraînements de tout le corps. Personnellement, c’est mon exercice au poids du corps préféré que je fais pour garder la forme lorsque je suis en vacance ou en déplacement, et même à la maison lorsque la salle est fermée.", "grand dorsal", "Placez-vous sous une barre de traction. Sautez et saisissez la barre (mains en pronation) à une largeur légèrement supérieure à celle des épaules.\n" +
             "Vos épaules, le haut du dos et les hanches doivent être correctement alignés. Les bras sont parfaitement tendus et votre corps se trouve en suspension. C’est la position de départ.\n" +
             "Prenez une grande inspiration puis expirez. Hissez-vous ensuite vers le haut en contractant les muscles de votre dos.\n" +
             "Amenez le menton au-dessus de la barre jusqu’à ce que les dorsaux soient bien contractés, puis redescendez lentement à la position de départ.\n" +
             "Répétez le mouvement jusqu’au nombre de répétitions prévu.", "https://www.youtube.com/watch?v=eGo4IYlbE5g");
-    /*    Workout workoutEtirements1 = new Workout(null,Categories.Etirements, "", "", "", "", "", "");
-        Workout workoutCardio1 = new Workout(null,Categories.Cardio, "", "", "", "", "", "");
-        Workout workoutJambes1 = new Workout(null,Categories.Jambes, "", "", "", "", "", "");
-     */
-    Workout workoutEpaules1 = new Workout(null,Categories.Epaules, "Le face pull", "Le face pull est un excellent moyen de renforcer les muscles de la coiffe des rotateurs comme le sous-épineux. Ceci permet de renforcer la stabilité et la force des omoplates et de rendre vos épaules plus résistantes aux blessures.", "Le face pull est un excellent moyen de renforcer les muscles de la coiffe des rotateurs comme le sous-épineux. Ceci permet de renforcer la stabilité et la force des omoplates et de rendre vos épaules plus résistantes aux blessures.\n" +
+        Workout workoutEtirements1 = new Workout(null, "", "", "", "", "", "");
+        Workout workoutCardio1 = new Workout(null, "", "", "", "", "", "");
+        Workout workoutJambes1 = new Workout(null, "", "", "", "", "", "");
+
+    Workout workoutEpaules1 = new Workout(null, "Le face pull", "Le face pull est un excellent moyen de renforcer les muscles de la coiffe des rotateurs comme le sous-épineux. Ceci permet de renforcer la stabilité et la force des omoplates et de rendre vos épaules plus résistantes aux blessures.", "Le face pull est un excellent moyen de renforcer les muscles de la coiffe des rotateurs comme le sous-épineux. Ceci permet de renforcer la stabilité et la force des omoplates et de rendre vos épaules plus résistantes aux blessures.\n" +
             "\n" +
             "De nombreux pratiquants privilégient les muscles pectoraux au détriment des muscles du dos, ce qui entraîne des déséquilibres musculaires et une mauvaise posture. Cet exercice peut s’avérer efficace pour corriger ces déséquilibres.", "épaules,dos,deltoïdes,rhomboïdes", "Attachez une corde sur une poulie placée à peu près au niveau de la poitrine.\n" +
             "Saisissez les deux extrémités de la corde avec une prise en pronation.\n" +
@@ -114,12 +114,22 @@ public class SignUpActivity extends AppCompatActivity {
                             db.collection("Users").document(user.getUid()).set(userData)
                                     .addOnSuccessListener(aVoid -> {
                                         DocumentReference userRef = db.collection("Users").document(user.getUid());
-                                        CollectionReference newCollectionRef = userRef.collection("Workout");
-                                        newCollectionRef.add(workoutBiceps1);
-                                        newCollectionRef.add(workoutTriceps1);
-                                        newCollectionRef.add(workoutDos1);
-                                        newCollectionRef.add(workoutChest1);
-                                        newCollectionRef.add(workoutEpaules1)
+                                        CollectionReference Biceps = userRef.collection("Biceps");
+                                        CollectionReference Triceps = userRef.collection("Triceps");
+                                        CollectionReference Dos = userRef.collection("Dos");
+                                        CollectionReference Chest = userRef.collection("Chest");
+                                        CollectionReference Epaules = userRef.collection("Epaules");
+                                        CollectionReference Etirements = userRef.collection("Etirements");
+                                        CollectionReference Cardio = userRef.collection("Cardio");
+                                        CollectionReference Jambes = userRef.collection("Jambes");
+                                        Biceps.add(workoutBiceps1);
+                                        Triceps.add(workoutTriceps1);
+                                        Dos.add(workoutDos1);
+                                        Chest.add(workoutChest1);
+                                        Epaules.add(workoutEpaules1);
+                                        Etirements.add(workoutEtirements1);
+                                        Cardio.add(workoutCardio1);
+                                        Jambes.add(workoutJambes1)
                                                 .addOnSuccessListener(documentReference -> {
                                                     System.out.println("good");
                                                 })
