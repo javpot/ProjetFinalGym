@@ -14,4 +14,28 @@ public class Categorie implements Serializable {
         this.image = image;
         this.exercices.addAll(exercices);
     }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public List<Workout> getExercices() {
+        return exercices;
+    }
+
+    public void setExercices(List<Workout> exercices) {
+        this.exercices = exercices;
+    }
 }
