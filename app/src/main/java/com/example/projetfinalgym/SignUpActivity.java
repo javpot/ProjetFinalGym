@@ -72,6 +72,15 @@ public class SignUpActivity extends AppCompatActivity {
             "Maintenez la position haute pendant une seconde et descendez lentement.\n" +
             "Répétez ce mouvement jusqu’à ce que vous ayez atteint le nombre de répétitions souhaité.", "https://www.youtube.com/watch?v=rep-qVOkqgk");
 
+    List<Workout> Bicepworkouts = new ArrayList<>();
+    List<Workout> Tricepworkouts = new ArrayList<>();
+    List<Workout> Chestworkouts = new ArrayList<>();
+    List<Workout> Dosworkouts = new ArrayList<>();
+    List<Workout> Etiremnetsworkouts = new ArrayList<>();
+    List<Workout> Cardioworkouts = new ArrayList<>();
+    List<Workout> Jambesworkouts = new ArrayList<>();
+    List<Workout> Epaulesworkouts = new ArrayList<>();
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_);
@@ -113,28 +122,38 @@ public class SignUpActivity extends AppCompatActivity {
                             userData.put("name", name);
                             userData.put("email", email);
 
-                            //charger les donnees d'une categorie dans la base
-                            Map<String, String> CategorieData = new HashMap<>();
-                            CategorieData.put("titre", "Biceps");
-                            CategorieData.put("image", "image");
-
-                            Map<String, List<Workout>> CategorieBicepsData = new HashMap<>();
-                            List<Workout> Bicepworkouts = new ArrayList<>();
+                            //creer les categories
                             Bicepworkouts.add(workoutBiceps1);
-                            CategorieBicepsData.put("exercices", Bicepworkouts);
+                            Tricepworkouts.add(workoutTriceps1);
+                            Chestworkouts.add(workoutChest1);
+                            Dosworkouts.add(workoutDos1);
+                            Etiremnetsworkouts.add(workoutEtirements1);
+                            Cardioworkouts.add(workoutCardio1);
+                            Jambesworkouts.add(workoutJambes1);
+                            Epaulesworkouts.add(workoutEpaules1);
 
+                            Categorie Biceps = new Categorie("Biceps", "", Bicepworkouts);
+                            Categorie Triceps = new Categorie("Triceps", "", Tricepworkouts);
+                            Categorie Chest = new Categorie("Chest", "", Chestworkouts);
+                            Categorie Dos = new Categorie("Dos", "", Dosworkouts);
+                            Categorie Etirements = new Categorie("Etirements", "", Etiremnetsworkouts);
+                            Categorie Jambes = new Categorie("Jambes", "", Cardioworkouts);
+                            Categorie Cardio = new Categorie("Cardio", "", Jambesworkouts);
+                            Categorie Epaules = new Categorie("Epaules", "", Epaulesworkouts);
+
+                            //ajouter les categories dans la base
                             db.collection("Users").document(user.getUid()).set(userData)
                                     .addOnSuccessListener(Void -> {
                                         DocumentReference userRef = db.collection("Users").document(user.getUid());
                                         CollectionReference Categories = userRef.collection("Categories");
-                                        Categories.document("Biceps").set(CategorieData);
-                                        Categories.document("Triceps").set(CategorieData);
-                                        Categories.document("Dos").set(CategorieData);
-                                        Categories.document("Chest").set(CategorieData);
-                                        Categories.document("Epaules").set(CategorieData);
-                                        Categories.document("Etirements").set(CategorieData);
-                                        Categories.document("Cardio").set(CategorieData);
-                                        Categories.document("Jambes").set(CategorieData)
+                                        Categories.document("Biceps").set(Biceps);
+                                        Categories.document("Triceps").set(Triceps);
+                                        Categories.document("Dos").set(Dos);
+                                        Categories.document("Chest").set(Chest);
+                                        Categories.document("Epaules").set(Epaules);
+                                        Categories.document("Etirements").set(Etirements);
+                                        Categories.document("Cardio").set(Cardio);
+                                        Categories.document("Jambes").set(Jambes)
                                                 .addOnSuccessListener(documentReference -> {
                                                     System.out.println("good");
                                                 })

@@ -11,7 +11,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class AllWorkoutsActivity extends AppCompatActivity {
     FirebaseAuth mAuth ;
-    String Categorie = String.valueOf(Categories.Biceps);
+    String Categorie = "Biceps";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
