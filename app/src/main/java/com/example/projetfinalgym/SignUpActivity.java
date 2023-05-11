@@ -20,7 +20,9 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -106,30 +108,33 @@ public class SignUpActivity extends AppCompatActivity {
                             user.updateProfile(profileUpdateRequest);
                             accepted = true;
 
-                            //charger des donnees dans la base
+                            //ajouter les donnees d'un user dans la base
                             Map<String, Object> userData = new HashMap<>();
                             userData.put("name", name);
                             userData.put("email", email);
 
+                            //charger les donnees d'une categorie dans la base
+                            Map<String, String> CategorieData = new HashMap<>();
+                            CategorieData.put("titre", "Biceps");
+                            CategorieData.put("image", "image");
+
+                            Map<String, List<Workout>> CategorieBicepsData = new HashMap<>();
+                            List<Workout> Bicepworkouts = new ArrayList<>();
+                            Bicepworkouts.add(workoutBiceps1);
+                            CategorieBicepsData.put("exercices", Bicepworkouts);
+
                             db.collection("Users").document(user.getUid()).set(userData)
-                                    .addOnSuccessListener(aVoid -> {
+                                    .addOnSuccessListener(Void -> {
                                         DocumentReference userRef = db.collection("Users").document(user.getUid());
-                                        CollectionReference Biceps = userRef.collection("Biceps");
-                                        CollectionReference Triceps = userRef.collection("Triceps");
-                                        CollectionReference Dos = userRef.collection("Dos");
-                                        CollectionReference Chest = userRef.collection("Chest");
-                                        CollectionReference Epaules = userRef.collection("Epaules");
-                                        CollectionReference Etirements = userRef.collection("Etirements");
-                                        CollectionReference Cardio = userRef.collection("Cardio");
-                                        CollectionReference Jambes = userRef.collection("Jambes");
-                                        Biceps.add(workoutBiceps1);
-                                        Triceps.add(workoutTriceps1);
-                                        Dos.add(workoutDos1);
-                                        Chest.add(workoutChest1);
-                                        Epaules.add(workoutEpaules1);
-                                        Etirements.add(workoutEtirements1);
-                                        Cardio.add(workoutCardio1);
-                                        Jambes.add(workoutJambes1)
+                                        CollectionReference Categories = userRef.collection("Categories");
+                                        Categories.document("Biceps").set(CategorieData);
+                                        Categories.document("Triceps").set(CategorieData);
+                                        Categories.document("Dos").set(CategorieData);
+                                        Categories.document("Chest").set(CategorieData);
+                                        Categories.document("Epaules").set(CategorieData);
+                                        Categories.document("Etirements").set(CategorieData);
+                                        Categories.document("Cardio").set(CategorieData);
+                                        Categories.document("Jambes").set(CategorieData)
                                                 .addOnSuccessListener(documentReference -> {
                                                     System.out.println("good");
                                                 })

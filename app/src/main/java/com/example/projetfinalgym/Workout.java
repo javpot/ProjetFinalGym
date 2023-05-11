@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Workout implements Serializable {
-    private Map<String,Object> infos = new HashMap<>();
+    private Map<String,String> infos = new HashMap<>();
 
 public Workout() {}
     public Workout(String image, String titre, String courtedescription,String longueDescription,String musclesSollicite, String execution, String lienYoutube ) {
@@ -22,11 +22,11 @@ public Workout() {}
 
     }
 
-    public Map<String, Object> getInfos() {
+    public Map<String, String> getInfos() {
         return infos;
     }
 
-    public void setInfos(Map<String, Object> infos) {
+    public void setInfos(Map<String, String> infos) {
         this.infos = infos;
     }
 }

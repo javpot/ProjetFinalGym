@@ -7,15 +7,21 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.io.Console;
+import java.lang.ref.Reference;
 
 public class AllCategoriesActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener  {
     MenuItem menuItem1;
     MenuItem menuItem2;
     MenuItem menuItem3;
+    FirebaseAuth mAuth ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +32,14 @@ public class AllCategoriesActivity extends AppCompatActivity implements BottomNa
         menuItem2 = bottomNavigationView.getMenu().findItem(R.id.sport);
         menuItem3 = bottomNavigationView.getMenu().findItem(R.id.account);
         menuItem2.setChecked(true);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        db.collection("Users").document(user.getUid()).collection("Categories");
+
+
+
     }
 
     @Override
