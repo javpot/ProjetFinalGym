@@ -1,9 +1,10 @@
 package com.example.projetfinalgym;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Categorie {
+public class Categorie implements Serializable {
     String titre;
     String image;
     List<Workout> exercices = new ArrayList<>();

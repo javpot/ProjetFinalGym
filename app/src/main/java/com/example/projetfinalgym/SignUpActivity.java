@@ -132,14 +132,14 @@ public class SignUpActivity extends AppCompatActivity {
                             Jambesworkouts.add(workoutJambes1);
                             Epaulesworkouts.add(workoutEpaules1);
 
-                            Categorie Biceps = new Categorie("Biceps", "", Bicepworkouts);
-                            Categorie Triceps = new Categorie("Triceps", "", Tricepworkouts);
-                            Categorie Chest = new Categorie("Chest", "", Chestworkouts);
-                            Categorie Dos = new Categorie("Dos", "", Dosworkouts);
-                            Categorie Etirements = new Categorie("Etirements", "", Etiremnetsworkouts);
-                            Categorie Jambes = new Categorie("Jambes", "", Cardioworkouts);
-                            Categorie Cardio = new Categorie("Cardio", "", Jambesworkouts);
-                            Categorie Epaules = new Categorie("Epaules", "", Epaulesworkouts);
+                            Categorie Biceps = new Categorie("Biceps", "image", Bicepworkouts);
+                            Categorie Triceps = new Categorie("Triceps", "image", Tricepworkouts);
+                            Categorie Chest = new Categorie("Chest", "image", Chestworkouts);
+                            Categorie Dos = new Categorie("Dos", "image", Dosworkouts);
+                            Categorie Etirements = new Categorie("Etirements", "image", Etiremnetsworkouts);
+                            Categorie Jambes = new Categorie("Jambes", "image", Cardioworkouts);
+                            Categorie Cardio = new Categorie("Cardio", "image", Jambesworkouts);
+                            Categorie Epaules = new Categorie("Epaules", "image", Epaulesworkouts);
 
                             //ajouter les categories dans la base
                             db.collection("Users").document(user.getUid()).set(userData)
