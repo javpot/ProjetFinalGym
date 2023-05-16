@@ -158,7 +158,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                     System.out.println("good");
                                                 })
                                                 .addOnFailureListener(e -> {
-                                                    System.out.println("mauvaias");
+                                                    System.out.println("mauvais");
                                                 });
 
 

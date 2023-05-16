@@ -11,6 +11,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -36,10 +37,8 @@ public class AllCategoriesActivity extends AppCompatActivity implements BottomNa
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
-        db.collection("Users").document(user.getUid()).collection("Categories");
-
-
-
+       CollectionReference collectionReference = db.collection("Users").document(user.getUid()).collection("Categories");
+       System.out.print(collectionReference.get());
     }
 
     @Override
