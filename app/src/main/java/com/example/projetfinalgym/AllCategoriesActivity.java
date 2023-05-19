@@ -1,12 +1,14 @@
 package com.example.projetfinalgym;
 
 import android.content.Intent;
+import android.graphics.ColorSpace;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -14,6 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Console;
 import java.lang.ref.Reference;
@@ -38,7 +41,14 @@ public class AllCategoriesActivity extends AppCompatActivity implements BottomNa
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
        CollectionReference collectionReference = db.collection("Users").document(user.getUid()).collection("Categories");
-       System.out.print(collectionReference.get());
+       collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+           @Override
+           public void onComplete(@NonNull Task<QuerySnapshot> task) {
+               for (DocumentSnapshot doc: task.getResult()) {
+                    System.out.print(doc);
+               }
+           }
+       });
     }
 
     @Override
