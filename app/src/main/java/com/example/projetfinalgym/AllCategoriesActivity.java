@@ -2,8 +2,13 @@ package com.example.projetfinalgym;
 
 import android.content.Intent;
 import android.graphics.ColorSpace;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +31,9 @@ public class AllCategoriesActivity extends AppCompatActivity implements BottomNa
     MenuItem menuItem1;
     MenuItem menuItem2;
     MenuItem menuItem3;
+    LinearLayout leftContainer;
+    LinearLayout rightContainer;
+
     FirebaseAuth mAuth ;
     private ArrayList<Categorie> categories = new ArrayList<>();
     @Override
@@ -39,6 +47,9 @@ public class AllCategoriesActivity extends AppCompatActivity implements BottomNa
         menuItem3 = bottomNavigationView.getMenu().findItem(R.id.account);
         menuItem2.setChecked(true);
 
+        leftContainer = findViewById(R.id.leftContainer);
+        rightContainer = findViewById(R.id.rightContainer);
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -46,11 +57,27 @@ public class AllCategoriesActivity extends AppCompatActivity implements BottomNa
        collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
            @Override
            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-               for (DocumentSnapshot doc: task.getResult()) {
-                    System.out.print(doc);
+               for (int i = 0; i < task.getResult().size(); i++) {
+                   if(i < 4)
+                        addCategorieView(leftContainer, task.getResult().getDocuments().get(i));
+                   else
+                       addCategorieView(rightContainer,task.getResult().getDocuments().get(i));
                }
            }
        });
+    }
+
+    private void addCategorieView(LinearLayout layout ,DocumentSnapshot doc) {
+            View view = getLayoutInflater().inflate(R.layout.categorie_item, null);
+
+            TextView TitleView = view.findViewById(R.id.CategorieTitle);
+        ImageView ImageView = view.findViewById(R.id.CategorieImage);
+
+        TitleView.setText(doc.getString("titre"));
+       // ImageView.setImage(doc.getString("image") + ".png");
+        // add image listener or text listener
+
+        layout.addView(view);
     }
 
     @Override

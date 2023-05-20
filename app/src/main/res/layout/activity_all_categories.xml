@@ -1,179 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkgray">
+    android:background="@color/darkgray"
+    >
 
     <ScrollView
-
-        android:layout_width="414dp"
-        android:layout_height="642dp"
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="620dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@+id/bottomAppBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/darkgray">
+            android:orientation="horizontal"
+            android:padding="10dp"
+            >
 
+            <LinearLayout
+                android:id="@+id/leftContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="0.5"
+                android:padding="5dp"
+                >
 
-            <ImageView
-                android:id="@+id/imageView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginBottom="24dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/dos" />
+            </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imageView14"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginEnd="28dp"
-                android:layout_marginBottom="24dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView8"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.01"
-                app:srcCompat="@drawable/etirements" />
+            <LinearLayout
+                android:id="@+id/rightContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="0.5"
+                android:padding="5dp"
+                >
 
-            <ImageView
-                android:id="@+id/imageView15"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginBottom="12dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView10"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/legs" />
-
-            <ImageView
-                android:id="@+id/imageView16"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginEnd="28dp"
-                android:layout_marginBottom="13dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/cardio" />
-
-            <ImageView
-                android:id="@+id/imageView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView11"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/man_doing_dumbbell_incline_bench_press_workout_royalty_free_image_522600373_1540485179_2" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="Dos"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toTopOf="@+id/imageView15"
-                app:layout_constraintEnd_toStartOf="@+id/textView8"
-                app:layout_constraintHorizontal_bias="0.374"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="68dp"
-                android:layout_marginTop="172dp"
-                android:text="Chest"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="64dp"
-                android:layout_marginBottom="24dp"
-                android:text="Cardio"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toTopOf="@+id/imageButton"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="56dp"
-                android:layout_marginTop="376dp"
-                android:text="Jambes"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="56dp"
-                android:layout_marginTop="20dp"
-                android:text="Epaules"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView19" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="40dp"
-                android:layout_marginBottom="20dp"
-                android:text="Etirements"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toTopOf="@+id/imageView16"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginEnd="28dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/triceps"
-                tools:layout_editor_absoluteY="425dp" />
-
-            <ImageView
-                android:id="@+id/imageView19"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11"
-                app:layout_constraintVertical_bias="0.158"
-                app:srcCompat="@drawable/image" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
-
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
@@ -181,10 +54,10 @@
         android:layout_gravity="bottom"
         android:background="@color/partialBlack"
 
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></com.google.android.material.appbar.MaterialToolbar>
+        app:layout_constraintStart_toStartOf="parent">
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -196,9 +69,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav">
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_nav"
+        >
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
