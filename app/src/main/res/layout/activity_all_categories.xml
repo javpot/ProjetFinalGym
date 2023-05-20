@@ -21,7 +21,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
 
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/darkgray">
 
 
@@ -29,109 +29,148 @@
                 android:id="@+id/imageView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/dos"
-                tools:layout_editor_absoluteX="34dp"
-                tools:layout_editor_absoluteY="16dp" />
+                android:layout_marginStart="32dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/dos" />
 
             <ImageView
                 android:id="@+id/imageView14"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                app:srcCompat="@drawable/etirements"
-                tools:layout_editor_absoluteX="235dp"
-                tools:layout_editor_absoluteY="16dp" />
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.01"
+                app:srcCompat="@drawable/etirements" />
 
             <ImageView
                 android:id="@+id/imageView15"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                app:srcCompat="@drawable/legs"
-                tools:layout_editor_absoluteX="34dp"
-                tools:layout_editor_absoluteY="234dp" />
+                android:layout_marginStart="32dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/legs" />
 
             <ImageView
                 android:id="@+id/imageView16"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                app:srcCompat="@drawable/cardio"
-                tools:layout_editor_absoluteX="234dp"
-                tools:layout_editor_absoluteY="233dp" />
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="13dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/cardio" />
 
             <ImageView
                 android:id="@+id/imageView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/man_doing_dumbbell_incline_bench_press_workout_royalty_free_image_522600373_1540485179_2"
-                tools:layout_editor_absoluteX="34dp"
-                tools:layout_editor_absoluteY="440dp" />
-
-            <ImageView
-                android:id="@+id/imageView18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/triceps"
-                tools:layout_editor_absoluteX="234dp"
-                tools:layout_editor_absoluteY="440dp" />
+                android:layout_marginStart="32dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView11"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/man_doing_dumbbell_incline_bench_press_workout_royalty_free_image_522600373_1540485179_2" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:text="Dos"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
-                tools:layout_editor_absoluteX="84dp"
-                tools:layout_editor_absoluteY="182dp" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Triceps"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                tools:layout_editor_absoluteX="272dp"
-                tools:layout_editor_absoluteY="588dp" />
+                app:layout_constraintBottom_toTopOf="@+id/imageView15"
+                app:layout_constraintEnd_toStartOf="@+id/textView8"
+                app:layout_constraintHorizontal_bias="0.374"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="68dp"
+                android:layout_marginTop="172dp"
                 android:text="Chest"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
-                tools:layout_editor_absoluteX="76dp"
-                tools:layout_editor_absoluteY="589dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="64dp"
+                android:layout_marginBottom="24dp"
                 android:text="Cardio"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
-                tools:layout_editor_absoluteX="273dp"
-                tools:layout_editor_absoluteY="388dp" />
+                app:layout_constraintBottom_toTopOf="@+id/imageButton"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="376dp"
                 android:text="Jambes"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
-                tools:layout_editor_absoluteX="64dp"
-                tools:layout_editor_absoluteY="389dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="20dp"
+                android:text="Epaules"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView19" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="20dp"
                 android:text="Etirements"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
-                tools:layout_editor_absoluteX="245dp"
-                tools:layout_editor_absoluteY="181dp" />
+                app:layout_constraintBottom_toTopOf="@+id/imageView16"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginEnd="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/triceps"
+                tools:layout_editor_absoluteY="425dp" />
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                app:layout_constraintVertical_bias="0.158"
+                app:srcCompat="@drawable/image" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
