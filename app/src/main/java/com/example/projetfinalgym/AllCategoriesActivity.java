@@ -20,12 +20,14 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Console;
 import java.lang.ref.Reference;
+import java.util.ArrayList;
 
 public class AllCategoriesActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener  {
     MenuItem menuItem1;
     MenuItem menuItem2;
     MenuItem menuItem3;
     FirebaseAuth mAuth ;
+    private ArrayList<Categorie> categories = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
