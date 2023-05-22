@@ -1,15 +1,19 @@
 package com.example.projetfinalgym;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +32,8 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
     MenuItem menuItem1;
     MenuItem menuItem2;
     MenuItem menuItem3;
+    Button add;
+    AlertDialog dialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +64,39 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
             }
         });
 
+        buildDialog();
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.show();
+            }
+        });
     }
 
-    private void addWorkoutView(LinearLayout layout, List list) {
+    private void buildDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.activity_form, null);
+
+
+        builder.setView(view);
+        builder.setTitle("Ajouter un nouveau Workout")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                  //      addWorkoutView();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+        dialog = builder.create();
+    }
+    public void addWorkoutView(LinearLayout layout, List list) {
         View view = getLayoutInflater().inflate(R.layout.workout_item, null);
 
         TextView TitleView = view.findViewById(R.id.WorkoutTitle);
