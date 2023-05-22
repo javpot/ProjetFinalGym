@@ -9,9 +9,80 @@ import java.util.Map;
 
 public class Workout implements Serializable {
     private Map<String,String> infos = new HashMap<>();
+    private String image;
+    private String titre;
+    private String courtedescription;
+    private String longueDescription;
+    private String musclesSollicite;
+    private String execution;
+    private String lienYoutube;
 
 public Workout() {}
-    public Workout(String image, String titre, String courtedescription,String longueDescription,String musclesSollicite, String execution, String lienYoutube ) {
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public String getCourtedescription() {
+        return courtedescription;
+    }
+
+    public void setCourtedescription(String courtedescription) {
+        this.courtedescription = courtedescription;
+    }
+
+    public String getLongueDescription() {
+        return longueDescription;
+    }
+
+    public void setLongueDescription(String longueDescription) {
+        this.longueDescription = longueDescription;
+    }
+
+    public String getMusclesSollicite() {
+        return musclesSollicite;
+    }
+
+    public void setMusclesSollicite(String musclesSollicite) {
+        this.musclesSollicite = musclesSollicite;
+    }
+
+    public String getExecution() {
+        return execution;
+    }
+
+    public void setExecution(String execution) {
+        this.execution = execution;
+    }
+
+    public String getLienYoutube() {
+        return lienYoutube;
+    }
+
+    public void setLienYoutube(String lienYoutube) {
+        this.lienYoutube = lienYoutube;
+    }
+
+    public Workout(String image, String titre, String courtedescription, String longueDescription, String musclesSollicite, String execution, String lienYoutube ) {
+this.image = image;
+this.titre = titre;
+this.courtedescription = courtedescription;
+this.longueDescription = longueDescription;
+this.musclesSollicite = musclesSollicite;
+this.execution = execution;
+this.lienYoutube = lienYoutube;
         infos.put("Image",image);
         infos.put("Titre",titre);
         infos.put("Muscle sollicite",musclesSollicite);

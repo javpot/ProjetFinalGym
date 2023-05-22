@@ -1,19 +1,15 @@
 package com.example.projetfinalgym;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,8 +28,6 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
     MenuItem menuItem1;
     MenuItem menuItem2;
     MenuItem menuItem3;
-    Button add;
-    AlertDialog dialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,53 +48,41 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         DocumentReference documentRef = firestore.document(documentPath);
+
         documentRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                List listOfExercices = Arrays.asList(task.getResult().get("exercices"));
-                for (int i = 0; i < listOfExercices.size(); i++) {
-                    addWorkoutView(container, listOfExercices);
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        List<Map<String, Object>> listOfExercises = (List<Map<String, Object>>) document.get("exercices");
+                        for (int i = 0; i < listOfExercises.size(); i++) {
+                            Map<String, Object> exercise = listOfExercises.get(i);
+                            String workoutTitle = (String) exercise.get("titre");
+                            // Use the workout title as needed
+                            System.out.println("Workout Title: " + workoutTitle);
+                            addWorkoutView(container, workoutTitle);
+                        }
+                    } else {
+                        // Document doesn't exist
+                        System.out.println("Workout document not found.");
+                    }
+                } else {
+                    // Error occurred while retrieving the document
+                    System.out.println("Failed to retrieve workout document: " + task.getException());
                 }
             }
         });
 
-        buildDialog();
 
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.show();
-            }
-        });
     }
 
-    private void buildDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = getLayoutInflater().inflate(R.layout.activity_form, null);
-
-
-        builder.setView(view);
-        builder.setTitle("Ajouter un nouveau Workout")
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                  //      addWorkoutView();
-                    }
-                })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-
-        dialog = builder.create();
-    }
-    public void addWorkoutView(LinearLayout layout, List list) {
+    private void addWorkoutView(LinearLayout layout,    String w) {
         View view = getLayoutInflater().inflate(R.layout.workout_item, null);
 
         TextView TitleView = view.findViewById(R.id.WorkoutTitle);
         ImageView imageView = view.findViewById(R.id.WorkoutImage);
+        TitleView.setText(w);
 
                  //   String imageName = value;
                     //       int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());

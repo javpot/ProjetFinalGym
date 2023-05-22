@@ -32,7 +32,7 @@
 
                 <TextView
                     android:id="@+id/CategorieTitle"
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="22dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="120dp"
