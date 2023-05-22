@@ -19,22 +19,26 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:background="@color/darkgray">
 
                 <ImageView
                     android:id="@+id/CategorieImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
                     android:layout_weight="1"
                     android:background="@color/black"
                     />
 
                 <TextView
                     android:id="@+id/CategorieTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_width="50dp"
+                    android:layout_height="22dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="120dp"
+                    android:textColor="@color/white"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
                     android:text="" />
             </RelativeLayout>
 
