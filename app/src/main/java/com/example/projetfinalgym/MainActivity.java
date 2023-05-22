@@ -80,8 +80,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.home:
-                Intent monInt = new Intent(this.getApplicationContext(), MainActivity.class);
-                startActivity(monInt);
+
                 return true;
             case R.id.sport:
                 Intent monInt1 = new Intent(this.getApplicationContext(), AllCategoriesActivity.class);

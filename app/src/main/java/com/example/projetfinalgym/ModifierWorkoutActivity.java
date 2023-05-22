@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ModifierWorkoutActivity extends AppCompatActivity {
     EditText Nom, CourteDesc, LongueDesc, Muscles, ExecutionExercice, LienYT;
     CheckBox Biceps,Chest,Triceps,Epaules,Cardio,Etirements,Jambes,Dos;
-    Button Done;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +33,6 @@ public class ModifierWorkoutActivity extends AppCompatActivity {
         Jambes = findViewById(R.id.checkbox7);
         Dos = findViewById(R.id.checkbox8);
 
-        Done = findViewById(R.id.buttonDone);
-
-        Done.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 
 }
