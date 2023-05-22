@@ -11,6 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     TextView bonjour;
@@ -32,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         //Message bonjour personalise
         FirebaseAuth auth = FirebaseAuth.getInstance();
-        String userName = auth.getCurrentUser().getDisplayName();
+        FirebaseUser user = auth.getCurrentUser();
+        String userName = user.getDisplayName();
         bonjour = findViewById(R.id.textView7);
         bonjour.setText("Bonjour " + userName + " \uD83D\uDC4B");
 
@@ -43,16 +49,31 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     public void ViewLegWorkouts(View view) {
-        Intent monInt = new Intent(this.getApplicationContext(), AllWorkoutsActivity.class);
-        startActivity(monInt);
+        String nom = "Jambes";
+        event(nom);
+
     }
     public void ViewChestWorkouts(View view) {
-        Intent monInt = new Intent(this.getApplicationContext(), AllWorkoutsActivity.class);
-        startActivity(monInt);
+        String nom = "Chest";
+        event(nom);
+
     }
     public void ViewBicepWorkouts(View view) {
-        Intent monInt = new Intent(this.getApplicationContext(), AllWorkoutsActivity.class);
-        startActivity(monInt);
+        String nom = "Biceps";
+        event(nom);
+    }
+
+    public void event (String name) {
+        Intent intent = new Intent(this, AllWorkoutsActivity.class);
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference collectionReference = db.collection("Users").document(user.getUid()).collection("Categories");
+        DocumentReference documentReference = collectionReference.document(name);
+        String documentPath = documentReference.getPath();
+
+        intent.putExtra("documentPath", documentPath);
+        startActivity(intent);
     }
 
     @Override
