@@ -1,15 +1,18 @@
 package com.example.projetfinalgym;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +31,9 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
     MenuItem menuItem1;
     MenuItem menuItem2;
     MenuItem menuItem3;
+
+    Button add;
+    AlertDialog dialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +46,7 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
         menuItem3 = bottomNavigationView.getMenu().findItem(R.id.account);
         menuItem2.setChecked(true);
 
-
+        add = findViewById(R.id.addWorkout);
         LinearLayout container = findViewById(R.id.Container);
 
         Intent intent = getIntent();
@@ -59,7 +65,7 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
                         for (int i = 0; i < listOfExercises.size(); i++) {
                             Map<String, Object> exercise = listOfExercises.get(i);
                             String workoutTitle = (String) exercise.get("titre");
-                            // Use the workout title as needed
+
                             System.out.println("Workout Title: " + workoutTitle);
                             addWorkoutView(container, workoutTitle);
                         }
@@ -74,7 +80,14 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
             }
         });
 
+        buildDialog();
 
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.show();
+            }
+        });
     }
 
     private void addWorkoutView(LinearLayout layout,    String w) {
@@ -91,6 +104,29 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
                  //   TitleView.setText(value);
 
         layout.addView(view);
+    }
+
+    private void buildDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.activity_form, null);
+
+
+        builder.setView(view);
+        builder.setTitle("Ajouter un nouveau Workout")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //      addWorkoutView();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+        dialog = builder.create();
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
