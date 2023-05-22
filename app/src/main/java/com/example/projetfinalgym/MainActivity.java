@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String userName = auth.getCurrentUser().getDisplayName();
         bonjour = findViewById(R.id.textView7);
-        bonjour.setText("Hi " + userName + " \uD83D\uDC4B");
+        bonjour.setText("Bonjour " + userName + " \uD83D\uDC4B");
 
     }
     public void ViewWorkouts(View view) {

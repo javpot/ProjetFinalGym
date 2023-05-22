@@ -19,11 +19,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Console;
+import java.io.Serializable;
 import java.lang.ref.Reference;
 import java.util.ArrayList;
 
@@ -58,7 +60,7 @@ public class AllCategoriesActivity extends AppCompatActivity implements BottomNa
            @Override
            public void onComplete(@NonNull Task<QuerySnapshot> task) {
                for (int i = 0; i < task.getResult().size(); i++) {
-                   if(i < 4)
+                   if(i < task.getResult().size() / 2)
                         addCategorieView(leftContainer, task.getResult().getDocuments().get(i));
                    else
                        addCategorieView(rightContainer,task.getResult().getDocuments().get(i));
@@ -71,15 +73,33 @@ public class AllCategoriesActivity extends AppCompatActivity implements BottomNa
             View view = getLayoutInflater().inflate(R.layout.categorie_item, null);
 
             TextView TitleView = view.findViewById(R.id.CategorieTitle);
-        ImageView ImageView = view.findViewById(R.id.CategorieImage);
+        ImageView imageView = view.findViewById(R.id.CategorieImage);
 
         TitleView.setText(doc.getString("titre"));
-       // ImageView.setImage(doc.getString("image") + ".png");
-        // add image listener or text listener
+
+        String imageName = doc.getString("image");
+        int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
+        imageView.setImageResource(resId);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                event(doc);
+            }
+        });
 
         layout.addView(view);
     }
 
+    public void event(DocumentSnapshot documentSnapshot) {
+        Intent intent = new Intent(this, AllWorkoutsActivity.class);
+        String documentId = documentSnapshot.getId();
+        String documentPath = documentSnapshot.getReference().getPath();
+
+        intent.putExtra("documentId", documentId);
+        intent.putExtra("documentPath", documentPath);
+        startActivity(intent);
+
+    }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
