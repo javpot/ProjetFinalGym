@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,7 +35,6 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
     MenuItem menuItem3;
 
     Button add;
-    Dialog dialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,11 +64,8 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
                     if (document.exists()) {
                         List<Map<String, Object>> listOfExercises = (List<Map<String, Object>>) document.get("exercices");
                         for (int i = 0; i < listOfExercises.size(); i++) {
-                            Map<String, Object> exercise = listOfExercises.get(i);
-                            String workoutTitle = (String) exercise.get("titre");
-
-                            System.out.println("Workout Title: " + workoutTitle);
-                            addWorkoutView(container, workoutTitle);
+                            Map<String, Object> infos = listOfExercises.get(i);
+                            addWorkoutView(container, infos);
                         }
                     } else {
                         // Document doesn't exist
@@ -85,34 +82,79 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.setContentView(R.layout.activity_form);
-                Window window = dialog.getWindow();
-                if (window != null) {
-                    WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-                    layoutParams.copyFrom(window.getAttributes());
-                    layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
-                    layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT;
-                    window.setAttributes(layoutParams);
-                }
-                dialog.setTitle("Ajouter un nouveau Workout");
-                dialog.show();
-
+                Dialog dialogAdd = dialog(dialog);
+                dialogAdd.setTitle("Ajouter un nouveau Workout");
+                dialogAdd.show();
             }
         });
     }
 
-    private void addWorkoutView(LinearLayout layout,    String w) {
+    public Dialog dialog(Dialog dialog) {
+        dialog.setContentView(R.layout.activity_form);
+        Window window = dialog.getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+            layoutParams.copyFrom(window.getAttributes());
+            layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+            layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT;
+            window.setAttributes(layoutParams);
+            return dialog;
+        }
+        return null;
+    }
+    private void addWorkoutView(LinearLayout layout, Map<String,Object> infos) {
         View view = getLayoutInflater().inflate(R.layout.workout_item, null);
 
+        Button update = view.findViewById(R.id.update);
+        Button delete = view.findViewById(R.id.delete);
         TextView TitleView = view.findViewById(R.id.WorkoutTitle);
         ImageView imageView = view.findViewById(R.id.WorkoutImage);
-        TitleView.setText(w);
 
-                 //   String imageName = value;
-                    //       int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
-                    //       imageView.setImageResource(resId);
+        String titre = (String) infos.get("titre");
+        TitleView.setText(titre);
 
-                 //   TitleView.setText(value);
+        TitleView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //envoyer vers singleWorkout
+            }
+        });
+
+        Dialog dialog = new Dialog(this);
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialogUpdate = dialog(dialog);
+                EditText Nom = dialog.findViewById(R.id.NomExercice);
+                EditText courteD = dialog.findViewById(R.id.CourteDescrip);
+                EditText LongueD = dialog.findViewById(R.id.LongueDescrip);
+                EditText Muscles = dialog.findViewById(R.id.MusclesSolicites);
+                EditText Execution = dialog.findViewById(R.id.Execution);
+                EditText LienYT = dialog.findViewById(R.id.LienYT);
+
+                Nom.setText(titre);
+                courteD.setText((String) infos.get("courtedescription"));
+                LongueD.setText((String) infos.get("longueDescription"));
+                System.out.print("HELLO " + (String) infos.get("longueDescription"));
+                Muscles.setText((String) infos.get("musclesSollicite"));
+                Execution.setText((String) infos.get("execution"));
+                LienYT.setText((String) infos.get("lienYoutube"));
+                dialogUpdate.setTitle("Modifier un Workout");
+                dialogUpdate.show();
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+/*
+        String imageName = (String) infos.get("image");
+        int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
+        imageView.setImageResource(resId);
+*/
 
         layout.addView(view);
     }

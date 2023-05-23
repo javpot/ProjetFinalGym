@@ -20,10 +20,10 @@
         app:srcCompat="@drawable/dumbell_fitness_svgrepo_com" />
 
     <EditText
-        android:id="@+id/edit_text3"
+        android:id="@+id/LongueDescrip"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@id/edit_text2"
+        android:layout_below="@id/CourteDescrip"
         android:hint="Longue description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,10 +31,10 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/edit_text2"
+        android:id="@+id/CourteDescrip"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@id/edit_text1"
+        android:layout_below="@id/NomExercice"
         android:hint="Courte description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,7 +42,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/edit_text1"
+        android:id="@+id/NomExercice"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_alignParentTop="true"
@@ -54,10 +54,10 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/edit_text5"
+        android:id="@+id/Execution"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@id/edit_text4"
+        android:layout_below="@id/MusclesSolicites"
         android:hint="Execution de l'exercice (optionnel)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -65,10 +65,10 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/edit_text6"
+        android:id="@+id/LienYT"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@id/edit_text5"
+        android:layout_below="@id/Execution"
         android:hint="Lien Youtube"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -76,10 +76,10 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/edit_text4"
+        android:id="@+id/MusclesSolicites"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@id/edit_text3"
+        android:layout_below="@id/LongueDescrip"
         android:hint="Muscles solicites (optionnel)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -96,22 +96,23 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.666" />
+        app:layout_constraintVertical_bias="0.586" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.969">
+        app:layout_constraintVertical_bias="0.867">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -123,7 +124,7 @@
                 android:id="@+id/checkbox1"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_below="@id/edit_text6"
+                android:layout_below="@id/LienYT"
                 android:layout_alignParentStart="true"
                 android:text="Biceps" />
 
@@ -131,7 +132,7 @@
                 android:id="@+id/checkbox3"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_below="@id/edit_text6"
+                android:layout_below="@id/LienYT"
                 android:layout_toEndOf="@id/checkbox2"
                 android:text="Chest" />
 
@@ -139,7 +140,7 @@
                 android:id="@+id/checkbox2"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_below="@id/edit_text6"
+                android:layout_below="@id/LienYT"
                 android:layout_toEndOf="@id/checkbox1"
                 android:text="Triceps" />
 
@@ -147,9 +148,10 @@
                 android:id="@+id/checkbox4"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_below="@id/edit_text6"
+                android:layout_below="@id/LienYT"
                 android:layout_toEndOf="@id/checkbox2"
                 android:text="Epaules" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -162,7 +164,7 @@
                 android:id="@+id/checkbox6"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_below="@id/edit_text6"
+                android:layout_below="@id/LienYT"
                 android:layout_toEndOf="@id/checkbox1"
                 android:text="Cardio" />
 
@@ -170,7 +172,7 @@
                 android:id="@+id/checkbox5"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_below="@id/edit_text6"
+                android:layout_below="@id/LienYT"
                 android:layout_toEndOf="@id/checkbox2"
                 android:text="Etirements" />
 
@@ -178,7 +180,7 @@
                 android:id="@+id/checkbox7"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_below="@id/edit_text6"
+                android:layout_below="@id/LienYT"
                 android:layout_toEndOf="@id/checkbox2"
                 android:text="Jambes" />
 
@@ -186,10 +188,23 @@
                 android:id="@+id/checkbox8"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_below="@id/edit_text6"
+                android:layout_below="@id/LienYT"
                 android:layout_alignParentStart="true"
                 android:text="Dos" />
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/Done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Terminer"
+        android:background="@drawable/accueilbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
