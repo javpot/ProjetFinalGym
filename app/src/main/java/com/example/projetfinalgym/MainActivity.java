@@ -87,7 +87,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 startActivity(monInt1);
                 return true;
             case R.id.account:
-
+                Intent monInt2 = new Intent(this.getApplicationContext(), account.class);
+                startActivity(monInt2);
                 return true;
 
         }

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/darkgray">
+
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/partialBlack"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/transparent_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="147dp"
+        android:layout_height="35dp"
+        android:text="John dayo"
+        android:textColor="#F4F4F4"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="46dp" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Free"
+        android:textColor="#FBFBFB"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="81dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="373dp"
+        android:layout_height="322dp"
+        android:background="@color/lightgray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="168dp">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Nom"
+            android:textColor="#92FFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="#92FFFFFF"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="129dp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mot de passe"
+            android:textColor="#92FFFFFF"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="233dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="149dp"
+            android:layout_height="46dp"
+            android:background="@null"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="John Dayo"
+            android:textColor="#FFFFFF"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="53dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="149dp"
+            android:layout_height="46dp"
+            android:background="@null"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="John@gmail.com"
+            android:textColor="#FFFFFF"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="162dp" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="89dp"
+            android:layout_height="44dp"
+            android:text="Modifier"
+            android:textColor="#FFFFFF"
+            tools:layout_editor_absoluteX="252dp"
+            tools:layout_editor_absoluteY="53dp"
+            android:background="@color/babygray"/>
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="89dp"
+            android:layout_height="44dp"
+            android:background="@color/babygray"
+            android:text="Modifier"
+            android:textColor="#FFFFFF"
+            tools:layout_editor_absoluteX="252dp"
+            tools:layout_editor_absoluteY="164dp" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="89dp"
+            android:layout_height="44dp"
+            android:background="@color/babygray"
+            android:text="Changer"
+            android:textColor="#FFFFFF"
+            tools:layout_editor_absoluteX="252dp"
+            tools:layout_editor_absoluteY="260dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword2"
+            android:layout_width="149dp"
+            android:layout_height="46dp"
+            android:background="@null"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:text="john123"
+            android:textColor="#FFFFFF"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="260dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="373dp"
+        android:layout_height="145dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="509dp">
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Abonnement"
+            android:textColor="#92FFFFFF"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Free"
+            android:textColor="#FBFBFB"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="15dp"
+            tools:layout_editor_absoluteY="50dp" />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="153dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/pro_rectangle"
+            android:text="Upgrade to Pro"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="202dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,6 +29,7 @@
         <activity android:name=".AllCategoriesActivity"/>
         <activity android:name=".AllWorkoutsActivity"/>
         <activity android:name=".SingleWorkoutActivity"/>
+        <activity android:name=".account"/>
 
     </application>
 

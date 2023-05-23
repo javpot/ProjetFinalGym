@@ -111,7 +111,8 @@ public class AllCategoriesActivity extends AppCompatActivity implements BottomNa
 
                 return true;
             case R.id.account:
-
+                Intent monInt1 = new Intent(this.getApplicationContext(), account.class);
+                startActivity(monInt1);
                 return true;
 
         }
