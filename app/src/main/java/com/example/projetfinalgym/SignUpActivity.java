@@ -166,7 +166,6 @@ public class SignUpActivity extends AppCompatActivity {
                                         startActivity(monInt);
                                     });
                         } else {
-                            // If sign up fails, display a message to the user.
                             Toast.makeText(SignUpActivity.this, "email invalide",
                                     Toast.LENGTH_SHORT).show();
                         }

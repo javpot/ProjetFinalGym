@@ -117,7 +117,6 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
         TitleView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //envoyer vers singleWorkout
                 Intent monInt = new Intent(getApplicationContext(), SingleWorkoutActivity.class);
                 monInt.putExtra("infos", (Serializable) infos);
                 startActivity(monInt);

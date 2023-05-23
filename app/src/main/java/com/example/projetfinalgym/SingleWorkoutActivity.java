@@ -26,5 +26,6 @@ public class SingleWorkoutActivity extends AppCompatActivity {
             String lienYT = receivedDataMap.get("lienYoutube");
         }
 
+
     }
 }

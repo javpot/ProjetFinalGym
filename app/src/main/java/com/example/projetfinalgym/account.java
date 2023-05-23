@@ -8,6 +8,7 @@ import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -15,20 +16,33 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
-public class account extends AppCompatActivity {
+public class account extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     Context context;
     EditText nameEditText;
     EditText emailEditText;
     EditText passwordEditText;
+    MenuItem menuItem1;
+    MenuItem menuItem2;
+    MenuItem menuItem3;
+
     FirebaseAuth auth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = auth.getCurrentUser();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        menuItem1 = bottomNavigationView.getMenu().findItem(R.id.home);
+        menuItem2 = bottomNavigationView.getMenu().findItem(R.id.sport);
+        menuItem3 = bottomNavigationView.getMenu().findItem(R.id.account);
+        menuItem3.setChecked(true);
+
         context = this.getApplicationContext();
         nameEditText = findViewById(R.id.nameEditText);
         emailEditText = findViewById(R.id.emailEditText);
@@ -38,25 +52,6 @@ public class account extends AppCompatActivity {
 
 
     }
-
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.home:
-                Intent monInt = new Intent(this.getApplicationContext(), MainActivity.class);
-                startActivity(monInt);
-                return true;
-            case R.id.sport:
-                Intent monInt1 = new Intent(this.getApplicationContext(), AllCategoriesActivity.class);
-                startActivity(monInt1);
-                return true;
-            case R.id.account:
-
-                return true;
-
-        }
-        return false;
-    }
-
     public void SignOut(View view) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Deconnexion");
@@ -81,7 +76,7 @@ public class account extends AppCompatActivity {
             }
         });
 
-        alertDialogBuilder.show(); // Ajout de cette ligne pour afficher la boîte de dialogue
+        alertDialogBuilder.show();
     }
 
     public void proMembershipView(View view) {
@@ -93,13 +88,10 @@ public class account extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Modification du username");
 
-        // Set up the input
         final EditText input = new EditText(this);
-        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
 
-        // Set up the buttons
         builder.setPositiveButton("Confirmer", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -116,19 +108,15 @@ public class account extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        // Display name updated successfully
                                         nameEditText.setText(newDisplayName);
-                                        // ...
+                                        Toast.makeText(account.this, "nom change avec succes",
+                                                Toast.LENGTH_SHORT).show();
                                     } else {
-                                        // An error occurred
-                                        Exception error = task.getException();
-                                        // Handle the error
-                                        // ...
+                                        Toast.makeText(account.this, "nom invalid",
+                                                Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
-                } else {
-                    // Current user is null, handle this case if needed
                 }
             }
         });
@@ -147,9 +135,7 @@ public class account extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Modification du courriel");
 
-        // Set up the input
         final EditText input = new EditText(this);
-        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
 
@@ -166,18 +152,14 @@ public class account extends AppCompatActivity {
                     currentUser.updateEmail(newEmail)
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
-                                    // Email updated successfully
                                     emailEditText.setText(newEmail);
-                                    // ...
+                                    Toast.makeText(account.this, "email change avec succes",
+                                            Toast.LENGTH_SHORT).show();
                                 } else {
-                                    // An error occurred
-                                    Exception error = task.getException();
-                                    // Handle the error
-                                    // ...
+                                    Toast.makeText(account.this, "email invalid",
+                                            Toast.LENGTH_SHORT).show();
                                 }
                             });
-                } else {
-                    // Current user is null, handle this case if needed
                 }
             }
         });
@@ -196,13 +178,10 @@ public class account extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Modification du mot de passe");
 
-        // Set up the input
         final EditText input = new EditText(this);
-        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
         builder.setView(input);
 
-        // Set up the buttons
         builder.setPositiveButton("Confirmer", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -215,18 +194,14 @@ public class account extends AppCompatActivity {
                     currentUser.updatePassword(newPassword)
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
-                                    // Password updated successfully
                                     passwordEditText.setText(newPassword);
-                                    // ...
+                                    Toast.makeText(account.this, "mot de passe change avec succes",
+                                            Toast.LENGTH_SHORT).show();
                                 } else {
-                                    // An error occurred
-                                    Exception error = task.getException();
-                                    // Handle the error
-                                    // ...
+                                    Toast.makeText(account.this, "mot de passe invalid",
+                                            Toast.LENGTH_SHORT).show();
                                 }
                             });
-                } else {
-                    // Current user is null, handle this case if needed
                 }
             }
         });
@@ -240,4 +215,22 @@ public class account extends AppCompatActivity {
         builder.show();
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.home:
+                Intent monInt = new Intent(this.getApplicationContext(), MainActivity.class);
+                startActivity(monInt);
+                return true;
+            case R.id.sport:
+                Intent monInt1 = new Intent(this.getApplicationContext(), AllCategoriesActivity.class);
+                startActivity(monInt1);
+                return true;
+            case R.id.account:
+
+                return true;
+
+        }
+        return false;
+    }
 }
