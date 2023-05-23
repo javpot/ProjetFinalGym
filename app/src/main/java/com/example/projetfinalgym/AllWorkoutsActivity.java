@@ -26,6 +26,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -62,9 +63,9 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        List<Map<String, Object>> listOfExercises = (List<Map<String, Object>>) document.get("exercices");
+                        List<Map<String, String>> listOfExercises = (List<Map<String, String>>) document.get("exercices");
                         for (int i = 0; i < listOfExercises.size(); i++) {
-                            Map<String, Object> infos = listOfExercises.get(i);
+                            Map<String, String> infos = listOfExercises.get(i);
                             addWorkoutView(container, infos);
                         }
                     } else {
@@ -102,7 +103,7 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
         }
         return null;
     }
-    private void addWorkoutView(LinearLayout layout, Map<String,Object> infos) {
+    private void addWorkoutView(LinearLayout layout, Map<String,String> infos) {
         View view = getLayoutInflater().inflate(R.layout.workout_item, null);
 
         Button update = view.findViewById(R.id.update);
@@ -110,13 +111,16 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
         TextView TitleView = view.findViewById(R.id.WorkoutTitle);
         ImageView imageView = view.findViewById(R.id.WorkoutImage);
 
-        String titre = (String) infos.get("titre");
+        String titre = infos.get("titre");
         TitleView.setText(titre);
 
         TitleView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //envoyer vers singleWorkout
+                Intent monInt = new Intent(getApplicationContext(), SingleWorkoutActivity.class);
+                monInt.putExtra("infos", (Serializable) infos);
+                startActivity(monInt);
             }
         });
 
@@ -133,11 +137,11 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
                 EditText LienYT = dialog.findViewById(R.id.LienYT);
 
                 Nom.setText(titre);
-                courteD.setText((String) infos.get("courtedescription"));
-                LongueD.setText((String) infos.get("longueDescription"));
-                Muscles.setText((String) infos.get("musclesSollicite"));
-                Execution.setText((String) infos.get("execution"));
-                LienYT.setText((String) infos.get("lienYoutube"));
+                courteD.setText(infos.get("courtedescription"));
+                LongueD.setText(infos.get("longueDescription"));
+                Muscles.setText(infos.get("musclesSollicite"));
+                Execution.setText(infos.get("execution"));
+                LienYT.setText(infos.get("lienYoutube"));
                 dialogUpdate.setTitle("Modifier un Workout");
                 dialogUpdate.show();
             }
@@ -168,7 +172,8 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
 
                 return true;
             case R.id.account:
-
+                Intent monInt1 = new Intent(this.getApplicationContext(), account.class);
+                startActivity(monInt1);
                 return true;
 
         }
