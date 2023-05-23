@@ -135,7 +135,6 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
                 Nom.setText(titre);
                 courteD.setText((String) infos.get("courtedescription"));
                 LongueD.setText((String) infos.get("longueDescription"));
-                System.out.print("HELLO " + (String) infos.get("longueDescription"));
                 Muscles.setText((String) infos.get("musclesSollicite"));
                 Execution.setText((String) infos.get("execution"));
                 LienYT.setText((String) infos.get("lienYoutube"));

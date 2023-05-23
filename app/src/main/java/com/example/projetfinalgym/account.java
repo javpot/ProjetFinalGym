@@ -68,9 +68,10 @@ public class account extends AppCompatActivity {
             public void onClick(DialogInterface arg0, int arg1) {
 
                 FirebaseAuth.getInstance().signOut();
-                Intent monInt1 = new Intent(context, LogInActivity.class);
-                startActivity(monInt1);
-            }
+                Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("EXIT", true);
+                startActivity(intent);            }
         });
 
         alertDialogBuilder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
