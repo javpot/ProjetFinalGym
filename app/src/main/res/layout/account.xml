@@ -34,167 +34,218 @@
         android:id="@+id/textView2"
         android:layout_width="147dp"
         android:layout_height="35dp"
+        android:layout_marginTop="44dp"
         android:text="John dayo"
         android:textColor="#F4F4F4"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="46dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="Free"
         android:textColor="#FBFBFB"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="81dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
+        android:id="@+id/constraintLayout"
         android:layout_width="373dp"
         android:layout_height="322dp"
+        android:layout_marginTop="36dp"
         android:background="@color/lightgray"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="168dp">
+        app:layout_constraintTop_toBottomOf="@+id/textView19">
 
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:layout_marginBottom="5dp"
             android:text="Nom"
             android:textColor="#92FFFFFF"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-            tools:layout_editor_absoluteX="16dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.615" />
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="Email"
             android:textColor="#92FFFFFF"
             android:textSize="16sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="129dp" />
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.063"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="20dp"
             android:text="mot de passe"
             android:textColor="#92FFFFFF"
             android:textSize="16sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="233dp" />
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.047"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
             android:layout_width="149dp"
             android:layout_height="46dp"
+            android:layout_marginTop="56dp"
             android:background="@null"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="John Dayo"
             android:textColor="#FFFFFF"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="53dp" />
+            app:layout_constraintBottom_toTopOf="@+id/textView14"
+            app:layout_constraintEnd_toStartOf="@+id/button5"
+            app:layout_constraintHorizontal_bias="0.155"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
             android:layout_width="149dp"
             android:layout_height="46dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginBottom="32dp"
             android:background="@null"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="John@gmail.com"
             android:textColor="#FFFFFF"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="162dp" />
+            app:layout_constraintBottom_toTopOf="@+id/textView16"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="89dp"
             android:layout_height="44dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="32dp"
+            android:background="@color/babygray"
             android:text="Modifier"
             android:textColor="#FFFFFF"
-            tools:layout_editor_absoluteX="252dp"
-            tools:layout_editor_absoluteY="53dp"
-            android:background="@color/babygray"/>
+            app:layout_constraintBottom_toTopOf="@+id/button7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.044" />
 
         <Button
             android:id="@+id/button7"
             android:layout_width="89dp"
             android:layout_height="44dp"
+            android:layout_marginTop="140dp"
             android:background="@color/babygray"
             android:text="Modifier"
             android:textColor="#FFFFFF"
-            tools:layout_editor_absoluteX="252dp"
-            tools:layout_editor_absoluteY="164dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.726"
+            app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName2"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button9"
             android:layout_width="89dp"
             android:layout_height="44dp"
+            android:layout_marginBottom="22dp"
             android:background="@color/babygray"
             android:text="Changer"
             android:textColor="#FFFFFF"
-            tools:layout_editor_absoluteX="252dp"
-            tools:layout_editor_absoluteY="260dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.887"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/editTextTextPassword2"
-            android:layout_width="149dp"
-            android:layout_height="46dp"
+            android:layout_width="130dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="23dp"
             android:background="@null"
             android:ems="10"
             android:inputType="textPassword"
             android:text="john123"
             android:textColor="#FFFFFF"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="260dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button9"
+            app:layout_constraintHorizontal_bias="0.118"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="373dp"
         android:layout_height="145dp"
+        android:layout_marginTop="38dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomAppBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="509dp">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <TextView
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:text="Abonnement"
             android:textColor="#92FFFFFF"
             android:textSize="16sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.053"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
             android:text="Free"
             android:textColor="#FBFBFB"
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="15dp"
-            tools:layout_editor_absoluteY="50dp" />
+            app:layout_constraintEnd_toStartOf="@+id/button10"
+            app:layout_constraintHorizontal_bias="0.088"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
         <Button
             android:id="@+id/button10"
             android:layout_width="153dp"
             android:layout_height="49dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="14dp"
             android:background="@drawable/pro_rectangle"
             android:text="Upgrade to Pro"
             android:textColor="#FFFFFF"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="202dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
