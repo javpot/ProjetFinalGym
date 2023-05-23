@@ -28,6 +28,7 @@
         <activity android:name=".AllWorkoutsActivity"/>
         <activity android:name=".SingleWorkoutActivity"/>
         <activity android:name=".account"/>
+        <activity android:name=".proMembership"/>
 
     </application>
 
