@@ -121,7 +121,7 @@
             android:orientation="vertical">
 
             <CheckBox
-                android:id="@+id/checkbox1"
+                android:id="@+id/Biceps"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
@@ -129,7 +129,7 @@
                 android:text="Biceps" />
 
             <CheckBox
-                android:id="@+id/checkbox3"
+                android:id="@+id/Chest"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
@@ -137,7 +137,7 @@
                 android:text="Chest" />
 
             <CheckBox
-                android:id="@+id/checkbox2"
+                android:id="@+id/Triceps"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
@@ -145,7 +145,7 @@
                 android:text="Triceps" />
 
             <CheckBox
-                android:id="@+id/checkbox4"
+                android:id="@+id/Epaules"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
@@ -161,31 +161,31 @@
             android:orientation="vertical">
 
             <CheckBox
-                android:id="@+id/checkbox6"
+                android:id="@+id/Cardio"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
-                android:layout_toEndOf="@id/checkbox1"
+                android:layout_toEndOf="@id/Biceps"
                 android:text="Cardio" />
 
             <CheckBox
-                android:id="@+id/checkbox5"
+                android:id="@+id/Etirements"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
-                android:layout_toEndOf="@id/checkbox2"
+                android:layout_toEndOf="@id/Chest"
                 android:text="Etirements" />
 
             <CheckBox
-                android:id="@+id/checkbox7"
+                android:id="@+id/Jambes"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
-                android:layout_toEndOf="@id/checkbox2"
+                android:layout_toEndOf="@id/Triceps"
                 android:text="Jambes" />
 
             <CheckBox
-                android:id="@+id/checkbox8"
+                android:id="@+id/Dos"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"

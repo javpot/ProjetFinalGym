@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -67,6 +68,7 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
                         for (int i = 0; i < listOfExercises.size(); i++) {
                             Map<String, String> infos = listOfExercises.get(i);
                             addWorkoutView(container, infos);
+
                         }
                     } else {
                         // Document doesn't exist
@@ -128,6 +130,7 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
             @Override
             public void onClick(View view) {
                 Dialog dialogUpdate = dialog(dialog);
+
                 EditText Nom = dialog.findViewById(R.id.NomExercice);
                 EditText courteD = dialog.findViewById(R.id.CourteDescrip);
                 EditText LongueD = dialog.findViewById(R.id.LongueDescrip);
@@ -135,12 +138,23 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
                 EditText Execution = dialog.findViewById(R.id.Execution);
                 EditText LienYT = dialog.findViewById(R.id.LienYT);
 
+                CheckBox Biceps = dialog.findViewById(R.id.Biceps);
+                CheckBox Chest = dialog.findViewById(R.id.Chest);
+                CheckBox Triceps = dialog.findViewById(R.id.Triceps);
+                CheckBox Epaules = dialog.findViewById(R.id.Epaules);
+                CheckBox Cardio = dialog.findViewById(R.id.Cardio);
+                CheckBox Etirements = dialog.findViewById(R.id.Etirements);
+                CheckBox Jambes = dialog.findViewById(R.id.Jambes);
+                CheckBox Dos = dialog.findViewById(R.id.Dos);
+
+
                 Nom.setText(titre);
                 courteD.setText(infos.get("courtedescription"));
                 LongueD.setText(infos.get("longueDescription"));
                 Muscles.setText(infos.get("musclesSollicite"));
                 Execution.setText(infos.get("execution"));
                 LienYT.setText(infos.get("lienYoutube"));
+
                 dialogUpdate.setTitle("Modifier un Workout");
                 dialogUpdate.show();
             }
@@ -160,6 +174,7 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
 
         layout.addView(view);
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
