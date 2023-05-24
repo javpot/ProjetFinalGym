@@ -133,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
-                android:layout_toEndOf="@id/checkbox2"
+                android:layout_toEndOf="@id/Biceps"
                 android:text="Chest" />
 
             <CheckBox
@@ -141,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
-                android:layout_toEndOf="@id/checkbox1"
+                android:layout_toEndOf="@id/Chest"
                 android:text="Triceps" />
 
             <CheckBox
@@ -149,7 +149,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
-                android:layout_toEndOf="@id/checkbox2"
+                android:layout_toEndOf="@id/Chest"
                 android:text="Epaules" />
 
         </LinearLayout>
