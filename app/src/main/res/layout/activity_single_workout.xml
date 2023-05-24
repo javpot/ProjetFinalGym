@@ -21,7 +21,58 @@
             <VideoView
                 android:id="@+id/videoView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/NomExercice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:padding="5dp"
+                android:layout_margin="10dp"
+                />
+
+            <TextView
+                android:id="@+id/CourteDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="Courte description"
+                android:layout_margin="10dp"
+                android:textSize="18dp"
+                />
+
+            <TextView
+                android:id="@+id/LongueDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="Longue description"
+                android:layout_margin="10dp"
+                android:textSize="18dp"
+
+                />
+
+            <TextView
+                android:id="@+id/MusclesSolicites"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="Muscles solicites"
+                android:layout_margin="10dp"
+                android:textSize="18dp"
+
+                />
+
+            <TextView
+                android:id="@+id/Execution"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="Execution"
+                android:layout_margin="10dp"
+                android:textSize="18dp"
+
+                />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

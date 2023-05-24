@@ -31,5 +31,6 @@
         <activity android:name=".proMembership"/>
 
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

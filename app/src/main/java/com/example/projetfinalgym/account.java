@@ -8,6 +8,7 @@ import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class account extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     Context context;
+    TextView name;
     EditText nameEditText;
     EditText emailEditText;
     EditText passwordEditText;
@@ -44,9 +46,11 @@ public class account extends AppCompatActivity implements BottomNavigationView.O
         menuItem3.setChecked(true);
 
         context = this.getApplicationContext();
+        name = findViewById(R.id.textView2);
         nameEditText = findViewById(R.id.nameEditText);
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
+        name.setText(currentUser.getDisplayName());
         nameEditText.setText(currentUser.getDisplayName());
         emailEditText.setText(currentUser.getEmail());
 
@@ -109,6 +113,7 @@ public class account extends AppCompatActivity implements BottomNavigationView.O
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         nameEditText.setText(newDisplayName);
+                                        name.setText(newDisplayName);
                                         Toast.makeText(account.this, "nom change avec succes",
                                                 Toast.LENGTH_SHORT).show();
                                     } else {
