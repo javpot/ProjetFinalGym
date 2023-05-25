@@ -70,7 +70,7 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
                         listOfExercises = (List<Map<String, String>>) document.get("exercices");
                         for (int i = 0; i < listOfExercises.size(); i++) {
                             Map<String, String> infos = listOfExercises.get(i);
-                            addWorkoutView(container, infos);
+                            addWorkoutView(container, infos, i);
 
                         }
                     }
@@ -111,6 +111,129 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
         EditText EView = dialog.findViewById(R.id.Execution);
         EditText LView = dialog.findViewById(R.id.LienYT);
 
+        setChecked(dialog,nomCategorie);
+
+        Button terminer = dialog.findViewById(R.id.Terminer);
+        terminer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nom = nomView.getText().toString();
+                String cd = CDView.getText().toString();
+                String ld = LDView.getText().toString();
+                String ms = MSView.getText().toString();
+                String e = EView.getText().toString();
+                String lyt = LView.getText().toString();
+
+                Workout newExercice = new Workout("image",nom,cd,ld,ms,e,lyt);
+
+                listOfExercises.add(newExercice.getInfos());
+                documentRef.update("exercices", listOfExercises);
+                addWorkoutView(container, newExercice.getInfos(), listOfExercises.size() - 1);
+                dialog.dismiss();
+            }
+        });
+    }
+
+    public void updateWorkout(Dialog dialog, Workout oldWorkout) {
+        EditText nomView = dialog.findViewById(R.id.NomExercice);
+        EditText CDView = dialog.findViewById(R.id.CourteDescrip);
+        EditText LDView = dialog.findViewById(R.id.LongueDescrip);
+        EditText MSView = dialog.findViewById(R.id.MusclesSolicites);
+        EditText EView = dialog.findViewById(R.id.Execution);
+        EditText LView = dialog.findViewById(R.id.LienYT);
+
+        Button terminer = dialog.findViewById(R.id.Terminer);
+        terminer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nom = nomView.getText().toString();
+                String cd = CDView.getText().toString();
+                String ld = LDView.getText().toString();
+                String ms = MSView.getText().toString();
+                String e = EView.getText().toString();
+                String lyt = LView.getText().toString();
+
+                // update dans la list et la bd
+                Workout Newworkout = new Workout("image", nom,cd,ld,ms,e,lyt);
+                int index = listOfExercises.indexOf(oldWorkout.getInfos());
+                listOfExercises.get(index).clear();
+                listOfExercises.get(index).putAll(Newworkout.getInfos());
+                documentRef.update("exercices", listOfExercises);
+
+                // update visuellement
+               View viewOldWorkout = container.getChildAt(index);
+               container.removeView(viewOldWorkout);
+               addWorkoutView(container, Newworkout.getInfos(), index);
+                dialog.dismiss();
+            }
+        });
+    }
+    private void addWorkoutView(LinearLayout layout, Map<String,String> infos, int index) {
+        View view = getLayoutInflater().inflate(R.layout.workout_item, null);
+
+        Button update = view.findViewById(R.id.update);
+        Button delete = view.findViewById(R.id.delete);
+        TextView TitleView = view.findViewById(R.id.WorkoutTitle);
+        ImageView imageView = view.findViewById(R.id.WorkoutImage);
+
+        String titre = infos.get("titre");
+        TitleView.setText(titre);
+
+        TitleView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent monInt = new Intent(getApplicationContext(), SingleWorkoutActivity.class);
+                monInt.putExtra("infos", (Serializable) infos);
+                startActivity(monInt);
+            }
+        });
+
+        Dialog dialog = new Dialog(this);
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialogUpdate = dialogReSize(dialog);
+
+                EditText Nom = dialog.findViewById(R.id.NomExercice);
+                EditText courteD = dialog.findViewById(R.id.CourteDescrip);
+                EditText LongueD = dialog.findViewById(R.id.LongueDescrip);
+                EditText Muscles = dialog.findViewById(R.id.MusclesSolicites);
+                EditText Execution = dialog.findViewById(R.id.Execution);
+                EditText LienYT = dialog.findViewById(R.id.LienYT);
+
+                setChecked(dialog,nomCategorie);
+
+                Nom.setText(titre);
+                courteD.setText(infos.get("courtedescription"));
+                LongueD.setText(infos.get("longueDescription"));
+                Muscles.setText(infos.get("musclesSollicite"));
+                Execution.setText(infos.get("execution"));
+                LienYT.setText(infos.get("lienYoutube"));
+
+                Workout workout = new Workout("image", titre, infos.get("courtedescription"), infos.get("longueDescription"), infos.get("musclesSollicite"), infos.get("execution"), infos.get("lienYoutube"));
+                dialogUpdate.show();
+                updateWorkout(dialogUpdate, workout);
+
+
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+/*
+        String imageName = (String) infos.get("image");
+        int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
+        imageView.setImageResource(resId);
+*/
+
+        layout.addView(view, index);
+    }
+
+    public void setChecked(Dialog dialog, String nomCategorie) {
         CheckBox Biceps = dialog.findViewById(R.id.Biceps);
         CheckBox Chest = dialog.findViewById(R.id.Chest);
         CheckBox Triceps = dialog.findViewById(R.id.Triceps);
@@ -156,130 +279,7 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
             default: break;
         }
 
-        Button terminer = dialog.findViewById(R.id.Terminer);
-        terminer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String nom = nomView.getText().toString();
-                String cd = CDView.getText().toString();
-                String ld = LDView.getText().toString();
-                String ms = MSView.getText().toString();
-                String e = EView.getText().toString();
-                String lyt = LView.getText().toString();
-
-                Workout newExercice = new Workout("image",nom,cd,ld,ms,e,lyt);
-
-                listOfExercises.add(newExercice.getInfos());
-                documentRef.update("exercices", listOfExercises);
-                addWorkoutView(container, newExercice.getInfos());
-                dialog.dismiss();
-            }
-        });
     }
-    private void addWorkoutView(LinearLayout layout, Map<String,String> infos) {
-        View view = getLayoutInflater().inflate(R.layout.workout_item, null);
-
-        Button update = view.findViewById(R.id.update);
-        Button delete = view.findViewById(R.id.delete);
-        TextView TitleView = view.findViewById(R.id.WorkoutTitle);
-        ImageView imageView = view.findViewById(R.id.WorkoutImage);
-
-        String titre = infos.get("titre");
-        TitleView.setText(titre);
-
-        TitleView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent monInt = new Intent(getApplicationContext(), SingleWorkoutActivity.class);
-                monInt.putExtra("infos", (Serializable) infos);
-                startActivity(monInt);
-            }
-        });
-
-        Dialog dialog = new Dialog(this);
-        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Dialog dialogUpdate = dialogReSize(dialog);
-
-                EditText Nom = dialog.findViewById(R.id.NomExercice);
-                EditText courteD = dialog.findViewById(R.id.CourteDescrip);
-                EditText LongueD = dialog.findViewById(R.id.LongueDescrip);
-                EditText Muscles = dialog.findViewById(R.id.MusclesSolicites);
-                EditText Execution = dialog.findViewById(R.id.Execution);
-                EditText LienYT = dialog.findViewById(R.id.LienYT);
-
-                CheckBox Biceps = dialog.findViewById(R.id.Biceps);
-                CheckBox Chest = dialog.findViewById(R.id.Chest);
-                CheckBox Triceps = dialog.findViewById(R.id.Triceps);
-                CheckBox Epaules = dialog.findViewById(R.id.Epaules);
-                CheckBox Cardio = dialog.findViewById(R.id.Cardio);
-                CheckBox Etirements = dialog.findViewById(R.id.Etirements);
-                CheckBox Jambes = dialog.findViewById(R.id.Jambes);
-                CheckBox Dos = dialog.findViewById(R.id.Dos);
-
-                switch (nomCategorie) {
-                    case "Biceps": {
-                        Biceps.setChecked(true);
-                        break;
-                    }
-                    case "Chest": {
-                        Chest.setChecked(true);
-                        break;
-                    }
-                    case "Triceps": {
-                        Triceps.setChecked(true);
-                        break;
-                    }
-                    case "Epaules": {
-                        Epaules.setChecked(true);
-                        break;
-                    }
-                    case "Cardio": {
-                        Cardio.setChecked(true);
-                        break;
-                    }
-                    case "Etirements": {
-                        Etirements.setChecked(true);
-                        break;
-                    }
-                    case "Jambes": {
-                        Jambes.setChecked(true);
-                        break;
-                    }
-                    case "Dos": {
-                        Dos.setChecked(true);
-                        break;
-                    }
-                    default: break;
-                }
-
-                Nom.setText(titre);
-                courteD.setText(infos.get("courtedescription"));
-                LongueD.setText(infos.get("longueDescription"));
-                Muscles.setText(infos.get("musclesSollicite"));
-                Execution.setText(infos.get("execution"));
-                LienYT.setText(infos.get("lienYoutube"));
-
-                dialogUpdate.show();
-            }
-        });
-
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-/*
-        String imageName = (String) infos.get("image");
-        int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
-        imageView.setImageResource(resId);
-*/
-
-        layout.addView(view);
-    }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
