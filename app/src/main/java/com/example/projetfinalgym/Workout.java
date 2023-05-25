@@ -76,20 +76,21 @@ public Workout() {}
     }
 
     public Workout(String image, String titre, String courtedescription, String longueDescription, String musclesSollicite, String execution, String lienYoutube ) {
-this.image = image;
-this.titre = titre;
-this.courtedescription = courtedescription;
-this.longueDescription = longueDescription;
-this.musclesSollicite = musclesSollicite;
-this.execution = execution;
-this.lienYoutube = lienYoutube;
-        infos.put("Image",image);
-        infos.put("Titre",titre);
-        infos.put("Muscle sollicite",musclesSollicite);
-        infos.put("Execution",execution);
-        infos.put("Lien_Youtube",lienYoutube);
-        infos.put("CourteDescription",courtedescription);
-        infos.put("LongueDescription",longueDescription);
+        this.image = image;
+        this.titre = titre;
+        this.courtedescription = courtedescription;
+        this.longueDescription = longueDescription;
+        this.musclesSollicite = musclesSollicite;
+        this.execution = execution;
+        this.lienYoutube = lienYoutube;
+
+        infos.put("image",this.image);
+        infos.put("titre",this.titre);
+        infos.put("courtedescription",this.courtedescription);
+        infos.put("longueDescription",this.longueDescription);
+        infos.put("musclesSollicite",this.musclesSollicite);
+        infos.put("execution",this.execution);
+        infos.put("lienYoutube",this.lienYoutube);
 
     }
 

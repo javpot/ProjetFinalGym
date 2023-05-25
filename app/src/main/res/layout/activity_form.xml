@@ -126,7 +126,8 @@
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
                 android:layout_alignParentStart="true"
-                android:text="Biceps" />
+                android:text="Biceps"
+                android:enabled="false"/>
 
             <CheckBox
                 android:id="@+id/Chest"
@@ -134,7 +135,8 @@
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
                 android:layout_toEndOf="@id/Biceps"
-                android:text="Chest" />
+                android:text="Chest"
+                android:enabled="false"/>
 
             <CheckBox
                 android:id="@+id/Triceps"
@@ -142,7 +144,8 @@
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
                 android:layout_toEndOf="@id/Chest"
-                android:text="Triceps" />
+                android:text="Triceps"
+                android:enabled="false"/>
 
             <CheckBox
                 android:id="@+id/Epaules"
@@ -150,7 +153,8 @@
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
                 android:layout_toEndOf="@id/Chest"
-                android:text="Epaules" />
+                android:text="Epaules"
+                android:enabled="false"/>
 
         </LinearLayout>
 
@@ -166,7 +170,8 @@
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
                 android:layout_toEndOf="@id/Biceps"
-                android:text="Cardio" />
+                android:text="Cardio"
+                android:enabled="false"/>
 
             <CheckBox
                 android:id="@+id/Etirements"
@@ -174,7 +179,8 @@
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
                 android:layout_toEndOf="@id/Chest"
-                android:text="Etirements" />
+                android:text="Etirements"
+                android:enabled="false"/>
 
             <CheckBox
                 android:id="@+id/Jambes"
@@ -182,7 +188,8 @@
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
                 android:layout_toEndOf="@id/Triceps"
-                android:text="Jambes" />
+                android:text="Jambes"
+                android:enabled="false"/>
 
             <CheckBox
                 android:id="@+id/Dos"
@@ -190,12 +197,13 @@
                 android:layout_height="48dp"
                 android:layout_below="@id/LienYT"
                 android:layout_alignParentStart="true"
-                android:text="Dos" />
+                android:text="Dos"
+                android:enabled="false"/>
         </LinearLayout>
     </LinearLayout>
 
     <Button
-        android:id="@+id/Done"
+        android:id="@+id/Terminer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Terminer"

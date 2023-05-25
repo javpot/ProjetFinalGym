@@ -76,7 +76,6 @@ public class AllCategoriesActivity extends AppCompatActivity implements BottomNa
         ImageView imageView = view.findViewById(R.id.CategorieImage);
 
         TitleView.setText(doc.getString("titre"));
-
         String imageName = doc.getString("image");
         int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
         imageView.setImageResource(resId);

@@ -1,8 +1,6 @@
 package com.example.projetfinalgym;
 
-import android.accessibilityservice.GestureDescription;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -35,8 +33,12 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
     MenuItem menuItem1;
     MenuItem menuItem2;
     MenuItem menuItem3;
-
     Button add;
+    LinearLayout container;
+    String nomCategorie;
+    List<Map<String, String>> listOfExercises;
+    FirebaseFirestore firestore;
+    DocumentReference documentRef;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,33 +52,28 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
         menuItem2.setChecked(true);
 
         add = findViewById(R.id.addWorkout);
-        LinearLayout container = findViewById(R.id.Container);
+        container = findViewById(R.id.Container);
 
         Intent intent = getIntent();
         String documentPath = intent.getStringExtra("documentPath");
 
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        DocumentReference documentRef = firestore.document(documentPath);
+        firestore = FirebaseFirestore.getInstance();
+        documentRef = firestore.document(documentPath);
 
         documentRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
+                    nomCategorie = (String) document.get("titre");
                     if (document.exists()) {
-                        List<Map<String, String>> listOfExercises = (List<Map<String, String>>) document.get("exercices");
+                        listOfExercises = (List<Map<String, String>>) document.get("exercices");
                         for (int i = 0; i < listOfExercises.size(); i++) {
                             Map<String, String> infos = listOfExercises.get(i);
                             addWorkoutView(container, infos);
 
                         }
-                    } else {
-                        // Document doesn't exist
-                        System.out.println("Workout document not found.");
                     }
-                } else {
-                    // Error occurred while retrieving the document
-                    System.out.println("Failed to retrieve workout document: " + task.getException());
                 }
             }
         });
@@ -85,14 +82,14 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialogAdd = dialog(dialog);
-                dialogAdd.setTitle("Ajouter un nouveau Workout");
+                Dialog dialogAdd = dialogReSize(dialog);
                 dialogAdd.show();
+                addWorkout(dialogAdd);
             }
         });
     }
 
-    public Dialog dialog(Dialog dialog) {
+    public Dialog dialogReSize(Dialog dialog) {
         dialog.setContentView(R.layout.activity_form);
         Window window = dialog.getWindow();
         if (window != null) {
@@ -104,6 +101,80 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
             return dialog;
         }
         return null;
+    }
+
+    public void addWorkout(Dialog dialog) {
+        EditText nomView = dialog.findViewById(R.id.NomExercice);
+        EditText CDView = dialog.findViewById(R.id.CourteDescrip);
+        EditText LDView = dialog.findViewById(R.id.LongueDescrip);
+        EditText MSView = dialog.findViewById(R.id.MusclesSolicites);
+        EditText EView = dialog.findViewById(R.id.Execution);
+        EditText LView = dialog.findViewById(R.id.LienYT);
+
+        CheckBox Biceps = dialog.findViewById(R.id.Biceps);
+        CheckBox Chest = dialog.findViewById(R.id.Chest);
+        CheckBox Triceps = dialog.findViewById(R.id.Triceps);
+        CheckBox Epaules = dialog.findViewById(R.id.Epaules);
+        CheckBox Cardio = dialog.findViewById(R.id.Cardio);
+        CheckBox Etirements = dialog.findViewById(R.id.Etirements);
+        CheckBox Jambes = dialog.findViewById(R.id.Jambes);
+        CheckBox Dos = dialog.findViewById(R.id.Dos);
+
+        switch (nomCategorie) {
+            case "Biceps": {
+                Biceps.setChecked(true);
+                break;
+            }
+            case "Chest": {
+                Chest.setChecked(true);
+                break;
+            }
+            case "Triceps": {
+                Triceps.setChecked(true);
+                break;
+            }
+            case "Epaules": {
+                Epaules.setChecked(true);
+                break;
+            }
+            case "Cardio": {
+                Cardio.setChecked(true);
+                break;
+            }
+            case "Etirements": {
+                Etirements.setChecked(true);
+                break;
+            }
+            case "Jambes": {
+                Jambes.setChecked(true);
+                break;
+            }
+            case "Dos": {
+                Dos.setChecked(true);
+                break;
+            }
+            default: break;
+        }
+
+        Button terminer = dialog.findViewById(R.id.Terminer);
+        terminer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nom = nomView.getText().toString();
+                String cd = CDView.getText().toString();
+                String ld = LDView.getText().toString();
+                String ms = MSView.getText().toString();
+                String e = EView.getText().toString();
+                String lyt = LView.getText().toString();
+
+                Workout newExercice = new Workout("image",nom,cd,ld,ms,e,lyt);
+
+                listOfExercises.add(newExercice.getInfos());
+                documentRef.update("exercices", listOfExercises);
+                addWorkoutView(container, newExercice.getInfos());
+                dialog.dismiss();
+            }
+        });
     }
     private void addWorkoutView(LinearLayout layout, Map<String,String> infos) {
         View view = getLayoutInflater().inflate(R.layout.workout_item, null);
@@ -129,7 +200,7 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog dialogUpdate = dialog(dialog);
+                Dialog dialogUpdate = dialogReSize(dialog);
 
                 EditText Nom = dialog.findViewById(R.id.NomExercice);
                 EditText courteD = dialog.findViewById(R.id.CourteDescrip);
@@ -147,6 +218,41 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
                 CheckBox Jambes = dialog.findViewById(R.id.Jambes);
                 CheckBox Dos = dialog.findViewById(R.id.Dos);
 
+                switch (nomCategorie) {
+                    case "Biceps": {
+                        Biceps.setChecked(true);
+                        break;
+                    }
+                    case "Chest": {
+                        Chest.setChecked(true);
+                        break;
+                    }
+                    case "Triceps": {
+                        Triceps.setChecked(true);
+                        break;
+                    }
+                    case "Epaules": {
+                        Epaules.setChecked(true);
+                        break;
+                    }
+                    case "Cardio": {
+                        Cardio.setChecked(true);
+                        break;
+                    }
+                    case "Etirements": {
+                        Etirements.setChecked(true);
+                        break;
+                    }
+                    case "Jambes": {
+                        Jambes.setChecked(true);
+                        break;
+                    }
+                    case "Dos": {
+                        Dos.setChecked(true);
+                        break;
+                    }
+                    default: break;
+                }
 
                 Nom.setText(titre);
                 courteD.setText(infos.get("courtedescription"));
@@ -155,7 +261,6 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
                 Execution.setText(infos.get("execution"));
                 LienYT.setText(infos.get("lienYoutube"));
 
-                dialogUpdate.setTitle("Modifier un Workout");
                 dialogUpdate.show();
             }
         });

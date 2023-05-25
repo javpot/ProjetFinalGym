@@ -20,14 +20,14 @@ public class SingleWorkoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_single_workout);
 
         Intent intent = getIntent();
-        Map<String, String> receivedDataMap = (Map<String, String>) intent.getSerializableExtra("infos");
+        Map<String, String> infos = (Map<String, String>) intent.getSerializableExtra("infos");
 
-            String nom = receivedDataMap.get("titre");
-            String courteDescription = receivedDataMap.get("courtedescription");
-            String longueDescription = receivedDataMap.get("longueDescription");
-            String musclesS = receivedDataMap.get("musclesSollicite");
-            String execution = receivedDataMap.get("execution");
-            String lienYT = receivedDataMap.get("lienYoutube");
+            String nom = infos.get("titre");
+            String courteDescription = infos.get("courtedescription");
+            String longueDescription = infos.get("longueDescription");
+            String musclesS = infos.get("musclesSollicite");
+            String execution = infos.get("execution");
+            String lienYT = infos.get("lienYoutube");
 
         TextView NomView = findViewById(R.id.NomExercice);
         TextView courteDescriptionView = findViewById(R.id.CourteDescrip);

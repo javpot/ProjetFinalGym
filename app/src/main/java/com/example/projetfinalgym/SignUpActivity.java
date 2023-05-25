@@ -58,9 +58,6 @@ public class SignUpActivity extends AppCompatActivity {
             "Prenez une grande inspiration puis expirez. Hissez-vous ensuite vers le haut en contractant les muscles de votre dos.\n" +
             "Amenez le menton au-dessus de la barre jusqu’à ce que les dorsaux soient bien contractés, puis redescendez lentement à la position de départ.\n" +
             "Répétez le mouvement jusqu’au nombre de répétitions prévu.", "https://www.youtube.com/watch?v=eGo4IYlbE5g");
-        Workout workoutEtirements1 = new Workout("image", "", "", "", "", "", "");
-        Workout workoutCardio1 = new Workout("image", "", "", "", "", "", "");
-        Workout workoutJambes1 = new Workout("image", "", "", "", "", "", "");
 
     Workout workoutEpaules1 = new Workout("image", "Le face pull", "Le face pull est un excellent moyen de renforcer les muscles de la coiffe des rotateurs comme le sous-épineux. Ceci permet de renforcer la stabilité et la force des omoplates et de rendre vos épaules plus résistantes aux blessures.", "Le face pull est un excellent moyen de renforcer les muscles de la coiffe des rotateurs comme le sous-épineux. Ceci permet de renforcer la stabilité et la force des omoplates et de rendre vos épaules plus résistantes aux blessures.\n" +
             "\n" +
@@ -126,9 +123,6 @@ public class SignUpActivity extends AppCompatActivity {
                             Tricepworkouts.add(workoutTriceps1);
                             Chestworkouts.add(workoutChest1);
                             Dosworkouts.add(workoutDos1);
-                            Etiremnetsworkouts.add(workoutEtirements1);
-                            Cardioworkouts.add(workoutCardio1);
-                            Jambesworkouts.add(workoutJambes1);
                             Epaulesworkouts.add(workoutEpaules1);
 
                             Categorie Biceps = new Categorie("Biceps", "image", Bicepworkouts);
