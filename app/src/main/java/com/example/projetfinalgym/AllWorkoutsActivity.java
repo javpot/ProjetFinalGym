@@ -221,6 +221,14 @@ public class AllWorkoutsActivity extends AppCompatActivity implements BottomNavi
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // delete dans la list et la bd
+                int index = listOfExercises.indexOf(infos);
+                listOfExercises.remove(index);
+                documentRef.update("exercices", listOfExercises);
+
+                // delete visuellement
+                View workout = container.getChildAt(index);
+                container.removeView(workout);
 
             }
         });

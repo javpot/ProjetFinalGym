@@ -32,7 +32,7 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="147dp"
+        android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginTop="44dp"
         android:textColor="#F4F4F4"
@@ -113,7 +113,7 @@
 
         <EditText
             android:id="@+id/nameEditText"
-            android:layout_width="153dp"
+            android:layout_width="wrap_content"
             android:layout_height="46dp"
             android:layout_marginTop="56dp"
             android:background="@null"
@@ -123,14 +123,13 @@
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/textView14"
             app:layout_constraintEnd_toStartOf="@+id/button5"
-            app:layout_constraintHorizontal_bias="0.155"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/emailEditText"
-            android:layout_width="153dp"
+            android:layout_width="wrap_content"
             android:layout_height="46dp"
             android:layout_marginStart="17dp"
             android:layout_marginBottom="32dp"
@@ -144,8 +143,8 @@
 
         <Button
             android:id="@+id/button5"
-            android:layout_width="89dp"
-            android:layout_height="44dp"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginTop="52dp"
             android:layout_marginEnd="32dp"
             android:background="@color/babygray"
@@ -159,8 +158,8 @@
 
         <Button
             android:id="@+id/button7"
-            android:layout_width="89dp"
-            android:layout_height="44dp"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginTop="140dp"
             android:background="@color/babygray"
             android:text="Modifier"
@@ -173,8 +172,8 @@
 
         <Button
             android:id="@+id/button9"
-            android:layout_width="89dp"
-            android:layout_height="44dp"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginBottom="22dp"
             android:background="@color/babygray"
             android:text="Changer"
@@ -187,7 +186,7 @@
 
         <EditText
             android:id="@+id/passwordEditText"
-            android:layout_width="130dp"
+            android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:layout_marginStart="5dp"
             android:layout_marginBottom="23dp"
@@ -255,7 +254,7 @@
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginStart="115dp"
         android:padding="12dp"
         android:layout_marginTop="40dp"
