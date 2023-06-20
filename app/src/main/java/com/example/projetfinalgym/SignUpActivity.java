@@ -128,11 +128,11 @@ public class SignUpActivity extends AppCompatActivity {
                             Categorie Biceps = new Categorie("Biceps", "image", Bicepworkouts);
                             Categorie Triceps = new Categorie("Triceps", "triceps", Tricepworkouts);
                             Categorie Chest = new Categorie("Chest", "image", Chestworkouts);
-                            Categorie Dos = new Categorie("Dos", "dos", Dosworkouts);
-                            Categorie Etirements = new Categorie("Etirements", "etirements", Etiremnetsworkouts);
-                            Categorie Jambes = new Categorie("Jambes", "legs", Cardioworkouts);
+                            Categorie Dos = new Categorie("Back", "dos", Dosworkouts);
+                            Categorie Etirements = new Categorie("Stretching", "etirements", Etiremnetsworkouts);
+                            Categorie Jambes = new Categorie("Legs", "legs", Cardioworkouts);
                             Categorie Cardio = new Categorie("Cardio", "cardio", Jambesworkouts);
-                            Categorie Epaules = new Categorie("Epaules", "image", Epaulesworkouts);
+                            Categorie Epaules = new Categorie("Shoulders", "image", Epaulesworkouts);
 
                             //ajouter les categories dans la base
                             db.collection("Users").document(user.getUid()).set(userData)

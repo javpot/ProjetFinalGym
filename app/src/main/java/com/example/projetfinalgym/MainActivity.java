@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         FirebaseUser user = auth.getCurrentUser();
         String userName = user.getDisplayName();
         bonjour = findViewById(R.id.textView7);
-        bonjour.setText("Bonjour " + userName + " \uD83D\uDC4B");
+        bonjour.setText("Hello " + userName + " \uD83D\uDC4B");
 
     }
     public void ViewWorkouts(View view) {

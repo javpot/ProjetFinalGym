@@ -58,10 +58,10 @@ public class account extends AppCompatActivity implements BottomNavigationView.O
     }
     public void SignOut(View view) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Deconnexion");
-        alertDialogBuilder.setMessage("Etes vous sur de vouloir vous deconnecter?");
+        alertDialogBuilder.setTitle("Log out");
+        alertDialogBuilder.setMessage("Are you sure you want to logout?");
         alertDialogBuilder.setCancelable(false);
-        alertDialogBuilder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
@@ -90,13 +90,13 @@ public class account extends AppCompatActivity implements BottomNavigationView.O
 
     public void ModifierNom(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Modification du username");
+        builder.setTitle("Modify username");
 
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
 
-        builder.setPositiveButton("Confirmer", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String newDisplayName = input.getText().toString();
@@ -114,10 +114,10 @@ public class account extends AppCompatActivity implements BottomNavigationView.O
                                     if (task.isSuccessful()) {
                                         nameEditText.setText(newDisplayName);
                                         name.setText(newDisplayName);
-                                        Toast.makeText(account.this, "nom change avec succes",
+                                        Toast.makeText(account.this, "name have been changed",
                                                 Toast.LENGTH_SHORT).show();
                                     } else {
-                                        Toast.makeText(account.this, "nom invalid",
+                                        Toast.makeText(account.this, "Invalid name",
                                                 Toast.LENGTH_SHORT).show();
                                     }
                                 }
@@ -125,7 +125,7 @@ public class account extends AppCompatActivity implements BottomNavigationView.O
                 }
             }
         });
-        builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -138,14 +138,14 @@ public class account extends AppCompatActivity implements BottomNavigationView.O
 
     public void modifierEmail(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Modification du courriel");
+        builder.setTitle("Modify email address");
 
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
 
         // Set up the buttons
-        builder.setPositiveButton("Confirmer", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String newEmail = input.getText().toString();
@@ -158,17 +158,17 @@ public class account extends AppCompatActivity implements BottomNavigationView.O
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
                                     emailEditText.setText(newEmail);
-                                    Toast.makeText(account.this, "email change avec succes",
+                                    Toast.makeText(account.this, "email address have been changed",
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(account.this, "email invalid",
+                                    Toast.makeText(account.this, "Invalid email address",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }
             }
         });
-        builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -181,13 +181,13 @@ public class account extends AppCompatActivity implements BottomNavigationView.O
 
     public void modifierPassword(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Modification du mot de passe");
+        builder.setTitle("Modify password");
 
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
         builder.setView(input);
 
-        builder.setPositiveButton("Confirmer", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String newPassword = input.getText().toString();
@@ -200,17 +200,17 @@ public class account extends AppCompatActivity implements BottomNavigationView.O
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
                                     passwordEditText.setText(newPassword);
-                                    Toast.makeText(account.this, "mot de passe change avec succes",
+                                    Toast.makeText(account.this, "password have been changed",
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(account.this, "mot de passe invalid",
+                                    Toast.makeText(account.this, "invalid password",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }
             }
         });
-        builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
